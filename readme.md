@@ -2,6 +2,7 @@
 
 - python3.7
 - selenium==3.11.0
+- pip install -r requirements.txt
 
 # 项目描述
 
