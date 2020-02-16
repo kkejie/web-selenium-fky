@@ -1,7 +1,0 @@
-2019-09-20 15:37:58,099 - BrowserEngine - INFO - 你选择了 Chrome 浏览器
-2019-09-20 15:37:58,099 - BrowserEngine - INFO - 测试服务器的URL是 : https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
-2019-09-20 15:38:00,982 - BrowserEngine - INFO - 打开Chrome浏览器。
-2019-09-20 15:38:12,788 - BrowserEngine - INFO - 打开网址:https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
-2019-09-20 15:38:18,724 - BasePage - INFO - 点击元素：部门预算 成功.
-2019-09-20 15:38:20,868 - BasePage - INFO - 点击元素：部门预算报表 成功.
-2019-09-20 15:38:22,999 - BasePage - INFO - 点击元素：  成功.
