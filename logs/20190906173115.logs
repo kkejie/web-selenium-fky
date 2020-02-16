@@ -1,0 +1,11 @@
+2019-09-06 17:31:15,987 - BrowserEngine - INFO - 你选择了 Chrome 浏览器
+2019-09-06 17:31:15,987 - BrowserEngine - INFO - 测试服务器的URL是 : https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-06 17:31:20,304 - BrowserEngine - INFO - 打开Chrome浏览器。
+2019-09-06 17:31:32,480 - BrowserEngine - INFO - 打开网址:https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-06 17:31:37,793 - Login - INFO - 登录成功。
+2019-09-06 17:31:38,913 - BasePage - INFO - 点击元素：系统管理 成功.
+2019-09-06 17:31:41,086 - BasePage - INFO - 点击元素：公司管理 成功.
+2019-09-06 17:31:43,233 - BasePage - INFO - 点击元素： 成功.
+2019-09-06 17:31:45,422 - BasePage - INFO - 点击元素：报销数据重置 成功.
+2019-09-06 17:31:47,471 - BasePage - INFO - 获取元素文本：重置报销数据 成功。
+2019-09-06 17:31:50,715 - Logout - INFO - 登出成功。

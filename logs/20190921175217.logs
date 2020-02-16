@@ -1,0 +1,48 @@
+2019-09-21 17:52:17,870 - BrowserEngine - INFO - 你选择了 Chrome 浏览器
+2019-09-21 17:52:17,871 - BrowserEngine - INFO - 测试服务器的URL是 : https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-21 17:52:20,917 - BrowserEngine - INFO - 打开Chrome浏览器。
+2019-09-21 17:52:38,503 - BrowserEngine - INFO - 打开网址:https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-21 17:52:42,179 - Login - INFO - 登录成功。
+2019-09-21 17:52:43,783 - BasePage - INFO - 点击元素：系统管理 成功.
+2019-09-21 17:52:45,946 - BasePage - INFO - 点击元素：公司管理 成功.
+2019-09-21 17:52:48,076 - BasePage - INFO - 点击元素：币种设置 成功.
+2019-09-21 17:52:51,249 - BasePage - INFO - 点击元素：选择 成功.
+2019-09-21 17:52:53,367 - BasePage - INFO - 点击元素：清空 成功.
+2019-09-21 17:52:55,489 - BasePage - INFO - 点击元素：查询 成功.
+2019-09-21 17:52:57,655 - BasePage - INFO - 产品分类中选择了 '200'
+2019-09-21 17:53:00,658 - BasePage - INFO - 等待 2 秒
+2019-09-21 17:53:01,845 - BasePage - INFO - 点击元素：展开  成功.
+2019-09-21 17:53:08,695 - BasePage - INFO - 获取元素文本：['USD', 'FRF', 'GBP', 'XEU', 'EUR', 'CHF', 'BYR', 'ADP', 'AED', 'AFA', 'AFN', 'ALL', 'AMD', 'ANG', 'AOA', 'AON', 'AOR', 'ARS', 'ATS', 'AUD', 'AWG', 'AZN', 'BBD', 'BDT', 'BEF', 'BGN', 'BHD', 'BIF', 'BMD', 'BND', 'BOB', 'BRL', 'BSD', 'BTN', 'BWP', 'BZD', 'CAD', 'CDF', 'CFP', 'CLP', 'COP', 'CRC', 'CUP', 'CVE', 'CYP', 'CZK', 'DEM', 'DJF', 'DKK', 'DOP', 'DZD', 'ECS', 'EEK', 'EGP', 'ERN', 'ESP', 'ETB', 'FIM', 'FJD', 'FKP', 'GEL', 'GHS', 'GIP', 'GMD', 'GNF', 'GRD', 'GTQ', 'GWP', 'GYD', 'HKD', 'HNL', 'HRK', 'HTG', 'HUF', 'IDR', 'IEP', 'ILS', 'INR', 'IQD', 'IRR', 'ISK', 'ITL', 'JMD', 'JOD', 'JPY', 'KES', 'KGS', 'KHR', 'KMF', 'KPW', 'KRW', 'KWD', 'KYD', 'KZT', 'LAK', 'LBP', 'LKR', 'LRD', 'LSL', 'LTL', 'LUF', 'LVL', 'LYD', 'MAD', 'MDL', 'MGA', 'MKD', 'MMK', 'MNT', 'MOP', 'MRO', 'MTL', 'MUR', 'MVR', 'MWK', 'MXN', 'MYR', 'MZN', 'NAD', 'NGN', 'NIO', 'NLG', 'NOK', 'NPR', 'NZD', 'NZD5', 'OMR', 'PAB', 'PEN', 'PGK', 'PHP', 'PKR', 'PLN', 'PTE', 'PYG', 'QAR', 'RON', 'RSD', 'RUB', 'RWF', 'SAR', 'SBD', 'SCR', 'SDG', 'SEK', 'SGD', 'SHP', 'SIT', 'SKK', 'SLL', 'SOS', 'SRD', 'SSP', 'STD', 'SVC', 'SYP', 'SZL', 'THB', 'TJS', 'TMT', 'TND', 'TOP', 'TPE', 'TRY', 'TTD', 'TWD', 'TZS', 'UAH', 'UGX', 'UYU', 'UZS', 'VEF', 'VND', 'VUV', 'WST', 'XAF', 'XCD', 'XOF', 'XPF', 'YER', 'YUM', 'ZAR', 'ZMW', 'ZWR'] 成功。
+2019-09-21 17:53:09,951 - BasePage - INFO - 在输入框中输入：LTL
+2019-09-21 17:53:12,080 - BasePage - INFO - 点击元素：查询 成功.
+2019-09-21 17:53:14,206 - BasePage - INFO - 点击元素： 成功.
+2019-09-21 17:53:16,349 - BasePage - INFO - 点击元素：确定 成功.
+2019-09-21 17:53:18,484 - BasePage - INFO - 点击元素：保存 成功.
+2019-09-21 17:53:20,619 - BasePage - INFO - 点击元素：确定 成功.
+2019-09-21 17:53:22,797 - BasePage - INFO - 获取元素文本：['CZK', 'HNL', 'USD', 'MZN', 'SVC'] 成功。
+2019-09-21 17:53:23,309 - BasePage - INFO - 截屏并保存到文件夹: /images
+2019-09-21 17:53:26,530 - BasePage - INFO - 点击元素：选择 成功.
+2019-09-21 17:53:28,646 - BasePage - INFO - 点击元素：清空 成功.
+2019-09-21 17:53:30,765 - BasePage - INFO - 点击元素：查询 成功.
+2019-09-21 17:53:32,868 - BasePage - INFO - 产品分类中选择了 '200'
+2019-09-21 17:53:35,868 - BasePage - INFO - 等待 2 秒
+2019-09-21 17:53:37,060 - BasePage - INFO - 点击元素：展开  成功.
+2019-09-21 17:53:44,933 - BasePage - INFO - 获取元素文本：['USD', 'FRF', 'GBP', 'XEU', 'EUR', 'CHF', 'BYR', 'ADP', 'AED', 'AFA', 'AFN', 'ALL', 'AMD', 'ANG', 'AOA', 'AON', 'AOR', 'ARS', 'ATS', 'AUD', 'AWG', 'AZN', 'BBD', 'BDT', 'BEF', 'BGN', 'BHD', 'BIF', 'BMD', 'BND', 'BOB', 'BRL', 'BSD', 'BTN', 'BWP', 'BZD', 'CAD', 'CDF', 'CFP', 'CLP', 'COP', 'CRC', 'CUP', 'CVE', 'CYP', 'CZK', 'DEM', 'DJF', 'DKK', 'DOP', 'DZD', 'ECS', 'EEK', 'EGP', 'ERN', 'ESP', 'ETB', 'FIM', 'FJD', 'FKP', 'GEL', 'GHS', 'GIP', 'GMD', 'GNF', 'GRD', 'GTQ', 'GWP', 'GYD', 'HKD', 'HNL', 'HRK', 'HTG', 'HUF', 'IDR', 'IEP', 'ILS', 'INR', 'IQD', 'IRR', 'ISK', 'ITL', 'JMD', 'JOD', 'JPY', 'KES', 'KGS', 'KHR', 'KMF', 'KPW', 'KRW', 'KWD', 'KYD', 'KZT', 'LAK', 'LBP', 'LKR', 'LRD', 'LSL', 'LTL', 'LUF', 'LVL', 'LYD', 'MAD', 'MDL', 'MGA', 'MKD', 'MMK', 'MNT', 'MOP', 'MRO', 'MTL', 'MUR', 'MVR', 'MWK', 'MXN', 'MYR', 'MZN', 'NAD', 'NGN', 'NIO', 'NLG', 'NOK', 'NPR', 'NZD', 'NZD5', 'OMR', 'PAB', 'PEN', 'PGK', 'PHP', 'PKR', 'PLN', 'PTE', 'PYG', 'QAR', 'RON', 'RSD', 'RUB', 'RWF', 'SAR', 'SBD', 'SCR', 'SDG', 'SEK', 'SGD', 'SHP', 'SIT', 'SKK', 'SLL', 'SOS', 'SRD', 'SSP', 'STD', 'SVC', 'SYP', 'SZL', 'THB', 'TJS', 'TMT', 'TND', 'TOP', 'TPE', 'TRY', 'TTD', 'TWD', 'TZS', 'UAH', 'UGX', 'UYU', 'UZS', 'VEF', 'VND', 'VUV', 'WST', 'XAF', 'XCD', 'XOF', 'XPF', 'YER', 'YUM', 'ZAR', 'ZMW', 'ZWR'] 成功。
+2019-09-21 17:53:46,125 - BasePage - INFO - 在输入框中输入：BND
+2019-09-21 17:53:48,261 - BasePage - INFO - 点击元素：查询 成功.
+2019-09-21 17:53:50,373 - BasePage - INFO - 点击元素： 成功.
+2019-09-21 17:53:52,533 - BasePage - INFO - 点击元素：确定 成功.
+2019-09-21 17:53:54,661 - BasePage - INFO - 点击元素：保存 成功.
+2019-09-21 17:53:56,784 - BasePage - INFO - 点击元素：确定 成功.
+2019-09-21 17:53:58,930 - BasePage - INFO - 获取元素文本：['CZK', 'HNL', 'USD', 'MZN', 'SVC'] 成功。
+2019-09-21 17:53:59,424 - BasePage - INFO - 截屏并保存到文件夹: /images
+2019-09-21 17:54:01,482 - BasePage - INFO - 获取元素文本：CZK 成功。
+2019-09-21 17:54:02,624 - BasePage - INFO - 点击元素： 成功.
+2019-09-21 17:54:04,712 - BasePage - INFO - 点击元素：确定 成功.
+2019-09-21 17:54:06,714 - BasePage - INFO - 等待 1 秒
+2019-09-21 17:54:07,763 - BasePage - INFO - 获取元素文本： 成功。
+2019-09-21 17:54:08,892 - BasePage - INFO - 获取元素文本：['HNL', 'USD', 'MZN', 'SVC', 'BYR'] 成功。
+2019-09-21 17:54:08,892 - CurrencySet - INFO - 删除币种成功。
+2019-09-21 17:54:09,893 - BasePage - INFO - 等待 1 秒
+2019-09-21 17:54:13,108 - Logout - INFO - 登出成功。
+2019-09-21 17:54:15,597 - BasePage - INFO - 关闭浏览器.

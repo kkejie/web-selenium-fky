@@ -1,0 +1,30 @@
+2019-09-05 17:41:32,567 - BrowserEngine - INFO - 你选择了 Chrome 浏览器
+2019-09-05 17:41:32,567 - BrowserEngine - INFO - 测试服务器的URL是 : https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-05 17:41:35,986 - BrowserEngine - INFO - 打开Chrome浏览器。
+2019-09-05 17:41:49,923 - BrowserEngine - INFO - 打开网址:https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-05 17:41:55,194 - Login - INFO - 登录成功。
+2019-09-05 17:41:56,526 - BasePage - INFO - 点击元素：首页 成功.
+2019-09-05 17:41:58,655 - BasePage - INFO - 点击元素：系统管理 成功.
+2019-09-05 17:42:00,789 - BasePage - INFO - 点击元素：公司管理 成功.
+2019-09-05 17:42:02,939 - BasePage - INFO - 点击元素：职级职位 成功.
+2019-09-05 17:42:05,042 - BasePage - INFO - 点击元素：简体中文 成功.
+2019-09-05 17:42:07,188 - BasePage - INFO - 点击元素：职位信息 成功.
+2019-09-05 17:42:09,310 - BasePage - INFO - 点击元素：新增 成功.
+2019-09-05 17:42:11,454 - BasePage - INFO - 在输入框中输入：职位1
+2019-09-05 17:42:13,611 - BasePage - INFO - 选择元素成功.
+2019-09-05 17:42:15,747 - BasePage - INFO - 选择元素成功.
+2019-09-05 17:42:18,020 - BasePage - INFO - 点击元素：保存 成功.
+2019-09-05 17:42:20,021 - BasePage - INFO - 等待 1 秒
+2019-09-05 17:42:21,102 - BasePage - INFO - 获取元素文本：职位名称已存在，请重新输入！ 成功。
+2019-09-05 17:42:22,244 - BasePage - INFO - 点击元素：确定 成功.
+2019-09-05 17:42:24,499 - BasePage - INFO - 在输入框中输入：孙建国
+2019-09-05 17:42:26,620 - BasePage - INFO - 选择元素成功.
+2019-09-05 17:42:28,768 - BasePage - INFO - 选择元素成功.
+2019-09-05 17:42:30,918 - BasePage - INFO - 点击元素：保存 成功.
+2019-09-05 17:42:32,920 - BasePage - INFO - 等待 1 秒
+2019-09-05 17:42:33,971 - BasePage - INFO - 获取元素文本：添加成功 成功。
+2019-09-05 17:42:35,161 - BasePage - INFO - 点击元素：确定 成功.
+2019-09-05 17:42:36,162 - RankPosition - INFO - 验证新增职位名字重复成功！
+2019-09-05 17:42:36,162 - RankPosition - INFO - 新增职位成功！
+2019-09-05 17:42:36,164 - BasePage - INFO - 隐性等待时间：1 秒
+2019-09-05 17:42:38,596 - Logout - INFO - 登出成功。

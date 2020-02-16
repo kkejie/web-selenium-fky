@@ -1,0 +1,2720 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>费控云自动化测试</title>
+    <meta name="generator" content="HTMLTestRunner 0.9.1"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    
+    <link href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/echarts/3.8.5/echarts.common.min.js"></script>
+    <!-- <script type="text/javascript" src="js/echarts.common.min.js"></script> -->
+    
+    
+<style type="text/css" media="screen">
+    body        { font-family: Microsoft YaHei,Consolas,arial,sans-serif; font-size: 80%; }
+    table       { font-size: 100%; }
+    pre         { white-space: pre-wrap;word-wrap: break-word; }
+
+    /* -- heading ---------------------------------------------------------------------- */
+    h1 {
+        font-size: 28pt;
+        color: black;
+        font-family: Microsoft YaHei;
+    }
+    .heading {
+        margin-top: 0ex;
+        margin-bottom: 1ex;
+    }
+
+    .heading .attribute {
+        margin-top: 1ex;
+        margin-bottom: 0;
+    }
+
+    .heading .description {
+        margin-top: 2ex;
+        margin-bottom: 3ex;
+    }
+
+    /* -- css div popup ------------------------------------------------------------------------ */
+    a.popup_link {
+    }
+
+    a.popup_link:hover {
+        color: red;
+    }
+
+    .popup_window {
+        display: none;
+        position: relative;
+        left: 0px;
+        top: 0px;
+        /*border: solid #627173 1px; */
+        padding: 10px;
+        /*background-color: #E6E6D6; */
+        font-family: "Lucida Console", "Courier New", Courier, monospace;
+        text-align: left;
+        font-size: 8pt;
+        /* width: 500px;*/
+    }
+
+    }
+    /* -- report ------------------------------------------------------------------------ */
+    #show_detail_line {
+        margin-top: 3ex;
+        margin-bottom: 1ex;
+    }
+    #result_table {
+        width: 99%;
+    }
+    #header_row {
+        font-weight: bold;
+        color: #303641;
+        background-color: #ebebeb;
+    }
+    #total_row  { font-weight: bold; }
+    .passClass  { background-color: #bdedbc; }
+    .failClass  { background-color: #ffefa4; }
+    .errorClass { background-color: #ffc9c9; }
+    .passCase   { color: #6c6; }
+    .failCase   { color: #FF6600; font-weight: bold; }
+    .errorCase  { color: #c00; font-weight: bold; }
+    .hiddenRow  { display: none; }
+    .testcase   { margin-left: 2em; }
+
+
+    /* -- ending ---------------------------------------------------------------------- */
+    #ending {
+    }
+
+    #div_base {
+                position:absolute;
+                top:0%;
+                left:5%;
+                right:5%;
+                width: auto;
+                height: auto;
+                margin: -15px 0 0 0;
+    }
+</style>
+
+    
+</head>
+<body>
+    <script language="javascript" type="text/javascript"><!--
+    output_list = Array();
+
+    /* level - 0:Summary; 1:Failed; 2:All */
+    function showCase(level) {
+        trs = document.getElementsByTagName("tr");
+        for (var i = 0; i < trs.length; i++) {
+            tr = trs[i];
+            id = tr.id;
+            if (id.substr(0,2) == 'ft') {
+                if (level < 1) {
+                    tr.className = 'hiddenRow';
+                }
+                else {
+                    tr.className = '';
+                }
+            }
+            if (id.substr(0,2) == 'pt') {
+                if (level > 1) {
+                    tr.className = '';
+                }
+                else {
+                    tr.className = 'hiddenRow';
+                }
+            }
+        }
+    }
+
+
+    function showClassDetail(cid, count) {
+        var id_list = Array(count);
+        var toHide = 1;
+        for (var i = 0; i < count; i++) {
+            tid0 = 't' + cid.substr(1) + '.' + (i+1);
+            tid = 'f' + tid0;
+            tr = document.getElementById(tid);
+            if (!tr) {
+                tid = 'p' + tid0;
+                tr = document.getElementById(tid);
+            }
+            id_list[i] = tid;
+            if (tr.className) {
+                toHide = 0;
+            }
+        }
+        for (var i = 0; i < count; i++) {
+            tid = id_list[i];
+            if (toHide) {
+                document.getElementById('div_'+tid).style.display = 'none'
+                document.getElementById(tid).className = 'hiddenRow';
+            }
+            else {
+                document.getElementById(tid).className = '';
+            }
+        }
+    }
+
+
+    function showTestDetail(div_id){
+        var details_div = document.getElementById(div_id)
+        var displayState = details_div.style.display
+        // alert(displayState)
+        if (displayState != 'block' ) {
+            displayState = 'block'
+            details_div.style.display = 'block'
+        }
+        else {
+            details_div.style.display = 'none'
+        }
+    }
+
+
+    function html_escape(s) {
+        s = s.replace(/&/g,'&amp;');
+        s = s.replace(/</g,'&lt;');
+        s = s.replace(/>/g,'&gt;');
+        return s;
+    }
+
+    /* obsoleted by detail in <div>
+    function showOutput(id, name) {
+        var w = window.open("", //url
+                        name,
+                        "resizable,scrollbars,status,width=800,height=450");
+        d = w.document;
+        d.write("<pre>");
+        d.write(html_escape(output_list[id]));
+        d.write("\n");
+        d.write("<a href='javascript:window.close()'>close</a>\n");
+        d.write("</pre>\n");
+        d.close();
+    }
+    */
+    --></script>
+
+    <div id="div_base">
+        
+    <div class='page-header'>
+        <h1>费控云自动化测试</h1>
+    <p class='attribute'><strong>开始时间:</strong> 2019-09-02 12:02:04</p>
+<p class='attribute'><strong>运行时长:</strong> 0:47:52.249644</p>
+<p class='attribute'><strong>状态:</strong> 通过 24 错误 66</p>
+
+    </div>
+    <div style="float: left;width:50%;"><p class='description'>用例测试情况</p></div>
+    <div id="chart" style="width:50%;height:400px;float:left;"></div>
+
+        
+    <div class="btn-group btn-group-sm">
+        <button class="btn btn-default" onclick='javascript:showCase(0)'>总结</button>
+        <button class="btn btn-default" onclick='javascript:showCase(1)'>失败</button>
+        <button class="btn btn-default" onclick='javascript:showCase(2)'>全部</button>
+    </div>
+    <p></p>
+    <table id='result_table' class="table table-bordered">
+        <colgroup>
+            <col align='left' />
+            <col align='right' />
+            <col align='right' />
+            <col align='right' />
+            <col align='right' />
+            <col align='right' />
+        </colgroup>
+        <tr id='header_row'>
+            <td>测试套件/测试用例</td>
+            <td>总数</td>
+            <td>通过</td>
+            <td>失败</td>
+            <td>错误</td>
+            <td>查看</td>
+        </tr>
+        
+    <tr class='passClass'>
+        <td>fky_testsuits.test01_home_page.Homepage</td>
+        <td>2</td>
+        <td>2</td>
+        <td>0</td>
+        <td>0</td>
+        <td><a href="javascript:showClassDetail('c1',2)">详情</a></td>
+    </tr>
+
+<tr id='pt1.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test1_into_notice</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt1.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test2_into_report</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+    <tr class='errorClass'>
+        <td>unittest.suite._ErrorHolder</td>
+        <td>24</td>
+        <td>0</td>
+        <td>0</td>
+        <td>24</td>
+        <td><a href="javascript:showClassDetail('c2',24)">详情</a></td>
+    </tr>
+
+<tr id='ft2.1' class='none'>
+    <td class='errorCase'><div class='testcase'>Homepage)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.1')" >
+        错误</a>
+
+    <div id='div_ft2.1' class="popup_window">
+        <pre>ft2.1: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test01_home_page.py", line 26, in tearDownClass
+    logout.log_out(cls)
+  File "W:\PycharmProjects\automation_fky\fky_common\logout.py", line 12, in log_out
+    self.driver.find_element_by_xpath('/html/body/div[1]/div[1]/div/div[2]/div[2]/ul/li[5]/a/i').click()
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[1]/div[1]/div/div[2]/div[2]/ul/li[5]/a/i"}
+  (Session info: chrome=74.0.3729.131)
+  (Driver info: chromedriver=2.46.628402 (536cd7adbad73a3783fdc2cab92ab2ba7ec361e1),platform=Windows NT 10.0.17763 x86_64)
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.2' class='none'>
+    <td class='errorCase'><div class='testcase'>Announce)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.2')" >
+        错误</a>
+
+    <div id='div_ft2.2' class="popup_window">
+        <pre>ft2.2: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test02_announcement.py", line 31, in tearDownClass
+    logout.log_out(cls)
+  File "W:\PycharmProjects\automation_fky\fky_common\logout.py", line 12, in log_out
+    self.driver.find_element_by_xpath('/html/body/div[1]/div[1]/div/div[2]/div[2]/ul/li[5]/a/i').click()
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[1]/div[1]/div/div[2]/div[2]/ul/li[5]/a/i"}
+  (Session info: chrome=74.0.3729.131)
+  (Driver info: chromedriver=2.46.628402 (536cd7adbad73a3783fdc2cab92ab2ba7ec361e1),platform=Windows NT 10.0.17763 x86_64)
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.3' class='none'>
+    <td class='errorCase'><div class='testcase'>Report)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.3')" >
+        错误</a>
+
+    <div id='div_ft2.3' class="popup_window">
+        <pre>ft2.3: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test03_report.py", line 30, in tearDownClass
+    logout.log_out(cls)
+  File "W:\PycharmProjects\automation_fky\fky_common\logout.py", line 12, in log_out
+    self.driver.find_element_by_xpath('/html/body/div[1]/div[1]/div/div[2]/div[2]/ul/li[5]/a/i').click()
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[1]/div[1]/div/div[2]/div[2]/ul/li[5]/a/i"}
+  (Session info: chrome=74.0.3729.131)
+  (Driver info: chromedriver=2.46.628402 (536cd7adbad73a3783fdc2cab92ab2ba7ec361e1),platform=Windows NT 10.0.17763 x86_64)
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.4' class='none'>
+    <td class='errorCase'><div class='testcase'>Switchcompany)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.4')" >
+        错误</a>
+
+    <div id='div_ft2.4' class="popup_window">
+        <pre>ft2.4: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test04_switch_company.py", line 32, in tearDownClass
+    logout.log_out(cls)
+  File "W:\PycharmProjects\automation_fky\fky_common\logout.py", line 12, in log_out
+    self.driver.find_element_by_xpath('/html/body/div[1]/div[1]/div/div[2]/div[2]/ul/li[5]/a/i').click()
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[1]/div[1]/div/div[2]/div[2]/ul/li[5]/a/i"}
+  (Session info: chrome=74.0.3729.131)
+  (Driver info: chromedriver=2.46.628402 (536cd7adbad73a3783fdc2cab92ab2ba7ec361e1),platform=Windows NT 10.0.17763 x86_64)
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.5' class='none'>
+    <td class='errorCase'><div class='testcase'>StaffManage)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.5')" >
+        错误</a>
+
+    <div id='div_ft2.5' class="popup_window">
+        <pre>ft2.5: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test05_staff_manage.py", line 24, in setUpClass
+    staff.into_staffgl()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\staffManagement.py", line 22, in into_staffgl
+    self.clicked(self.guanligg)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.6' class='none'>
+    <td class='errorCase'><div class='testcase'>RankPosition)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.6')" >
+        错误</a>
+
+    <div id='div_ft2.6' class="popup_window">
+        <pre>ft2.6: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test06_rank_position.py", line 25, in setUpClass
+    position.into_zhiji()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\rankPosition.py", line 23, in into_zhiji
+    self.clicked(self.zhiweizj)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.7' class='none'>
+    <td class='errorCase'><div class='testcase'>CompanyInfo)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.7')" >
+        错误</a>
+
+    <div id='div_ft2.7' class="popup_window">
+        <pre>ft2.7: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test07_company_information.py", line 25, in setUpClass
+    company.into_company_info()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\switchCompany.py", line 131, in into_company_info
+    self.clicked(self.company_info)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.8' class='none'>
+    <td class='errorCase'><div class='testcase'>DepartMentInfo)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.8')" >
+        错误</a>
+
+    <div id='div_ft2.8' class="popup_window">
+        <pre>ft2.8: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test08_department_info.py", line 25, in setUpClass
+    depart.into_bumen()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\departmentInformation.py", line 19, in into_bumen
+    self.clicked(self.bumeninfo)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.9' class='none'>
+    <td class='errorCase'><div class='testcase'>CurrencySet)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.9')" >
+        错误</a>
+
+    <div id='div_ft2.9' class="popup_window">
+        <pre>ft2.9: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test09_currency_set.py", line 23, in setUpClass
+    feecontrol.into_feikonggl()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\feecontrolManagement.py", line 17, in into_feikonggl
+    self.clicked(self.feikonggl)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.10' class='none'>
+    <td class='errorCase'><div class='testcase'>CostType)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.10')" >
+        错误</a>
+
+    <div id='div_ft2.10' class="popup_window">
+        <pre>ft2.10: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test11_cost_type.py", line 24, in setUpClass
+    feecontrol.into_feikonggl()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\feecontrolManagement.py", line 17, in into_feikonggl
+    self.clicked(self.feikonggl)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.11' class='none'>
+    <td class='errorCase'><div class='testcase'>AuxiliaryItems)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.11')" >
+        错误</a>
+
+    <div id='div_ft2.11' class="popup_window">
+        <pre>ft2.11: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test12_auxiliary_items.py", line 23, in setUpClass
+    feecontrol.into_feikonggl()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\feecontrolManagement.py", line 17, in into_feikonggl
+    self.clicked(self.feikonggl)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.12' class='none'>
+    <td class='errorCase'><div class='testcase'>ReimburPropose)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.12')" >
+        错误</a>
+
+    <div id='div_ft2.12' class="popup_window">
+        <pre>ft2.12: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test14_reimbursement_propose.py", line 22, in setUpClass
+    feecontrol.into_feikonggl()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\feecontrolManagement.py", line 17, in into_feikonggl
+    self.clicked(self.feikonggl)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.13' class='none'>
+    <td class='errorCase'><div class='testcase'>InvoiceType)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.13')" >
+        错误</a>
+
+    <div id='div_ft2.13' class="popup_window">
+        <pre>ft2.13: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test15_invoice_type.py", line 22, in setUpClass
+    feecontrol.into_feikonggl()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\feecontrolManagement.py", line 17, in into_feikonggl
+    self.clicked(self.feikonggl)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.14' class='none'>
+    <td class='errorCase'><div class='testcase'>TaxExpenses)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.14')" >
+        错误</a>
+
+    <div id='div_ft2.14' class="popup_window">
+        <pre>ft2.14: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test16_tax_expenses.py", line 23, in setUpClass
+    feecontrol.into_feikonggl()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\feecontrolManagement.py", line 17, in into_feikonggl
+    self.clicked(self.feikonggl)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.15' class='none'>
+    <td class='errorCase'><div class='testcase'>ResetReimbursement)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.15')" >
+        错误</a>
+
+    <div id='div_ft2.15' class="popup_window">
+        <pre>ft2.15: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test17_reset_reimbursement.py", line 22, in setUpClass
+    feecontrol.into_feikonggl()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\feecontrolManagement.py", line 17, in into_feikonggl
+    self.clicked(self.feikonggl)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.16' class='none'>
+    <td class='errorCase'><div class='testcase'>DocumentPageField)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.16')" >
+        错误</a>
+
+    <div id='div_ft2.16' class="popup_window">
+        <pre>ft2.16: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test19_page_field.py", line 24, in setUpClass
+    pagefield.into_danju_ziduan()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\documentPageField.py", line 13, in into_danju_ziduan
+    self.clicked(self.danju_ziduan)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.17' class='none'>
+    <td class='errorCase'><div class='testcase'>DocumentPageAttachment)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.17')" >
+        错误</a>
+
+    <div id='div_ft2.17' class="popup_window">
+        <pre>ft2.17: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test20_page_attachment.py", line 23, in setUpClass
+    pageattachment.into_danju_fujian()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\documentPageAttachment.py", line 15, in into_danju_fujian
+    self.clicked(self.danju_fujian)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.18' class='none'>
+    <td class='errorCase'><div class='testcase'>Projectlist)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.18')" >
+        错误</a>
+
+    <div id='div_ft2.18' class="popup_window">
+        <pre>ft2.18: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test21_project_list.py", line 31, in tearDownClass
+    logout.log_out(cls)
+  File "W:\PycharmProjects\automation_fky\fky_common\logout.py", line 12, in log_out
+    self.driver.find_element_by_xpath('/html/body/div[1]/div[1]/div/div[2]/div[2]/ul/li[5]/a/i').click()
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[1]/div[1]/div/div[2]/div[2]/ul/li[5]/a/i"}
+  (Session info: chrome=74.0.3729.131)
+  (Driver info: chromedriver=2.46.628402 (536cd7adbad73a3783fdc2cab92ab2ba7ec361e1),platform=Windows NT 10.0.17763 x86_64)
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.19' class='none'>
+    <td class='errorCase'><div class='testcase'>Contract)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.19')" >
+        错误</a>
+
+    <div id='div_ft2.19' class="popup_window">
+        <pre>ft2.19: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test22_contract_management.py", line 29, in tearDownClass
+    logout.log_out(cls)
+  File "W:\PycharmProjects\automation_fky\fky_common\logout.py", line 12, in log_out
+    self.driver.find_element_by_xpath('/html/body/div[1]/div[1]/div/div[2]/div[2]/ul/li[5]/a/i').click()
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[1]/div[1]/div/div[2]/div[2]/ul/li[5]/a/i"}
+  (Session info: chrome=74.0.3729.131)
+  (Driver info: chromedriver=2.46.628402 (536cd7adbad73a3783fdc2cab92ab2ba7ec361e1),platform=Windows NT 10.0.17763 x86_64)
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.20' class='none'>
+    <td class='errorCase'><div class='testcase'>Customersmanagement)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.20')" >
+        错误</a>
+
+    <div id='div_ft2.20' class="popup_window">
+        <pre>ft2.20: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test23_customers_management.py", line 29, in tearDownClass
+    logout.log_out(cls)
+  File "W:\PycharmProjects\automation_fky\fky_common\logout.py", line 12, in log_out
+    self.driver.find_element_by_xpath('/html/body/div[1]/div[1]/div/div[2]/div[2]/ul/li[5]/a/i').click()
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[1]/div[1]/div/div[2]/div[2]/ul/li[5]/a/i"}
+  (Session info: chrome=74.0.3729.131)
+  (Driver info: chromedriver=2.46.628402 (536cd7adbad73a3783fdc2cab92ab2ba7ec361e1),platform=Windows NT 10.0.17763 x86_64)
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.21' class='none'>
+    <td class='errorCase'><div class='testcase'>ProcedModel)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.21')" >
+        错误</a>
+
+    <div id='div_ft2.21' class="popup_window">
+        <pre>ft2.21: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test24_procedural_model.py", line 29, in tearDownClass
+    logout.log_out(cls)
+  File "W:\PycharmProjects\automation_fky\fky_common\logout.py", line 12, in log_out
+    self.driver.find_element_by_xpath('/html/body/div[1]/div[1]/div/div[2]/div[2]/ul/li[5]/a/i').click()
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[1]/div[1]/div/div[2]/div[2]/ul/li[5]/a/i"}
+  (Session info: chrome=74.0.3729.131)
+  (Driver info: chromedriver=2.46.628402 (536cd7adbad73a3783fdc2cab92ab2ba7ec361e1),platform=Windows NT 10.0.17763 x86_64)
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.22' class='none'>
+    <td class='errorCase'><div class='testcase'>LoanApplicat)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.22')" >
+        错误</a>
+
+    <div id='div_ft2.22' class="popup_window">
+        <pre>ft2.22: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test25_loan_application.py", line 33, in tearDownClass
+    logout.log_out(cls)
+  File "W:\PycharmProjects\automation_fky\fky_common\logout.py", line 12, in log_out
+    self.driver.find_element_by_xpath('/html/body/div[1]/div[1]/div/div[2]/div[2]/ul/li[5]/a/i').click()
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[1]/div[1]/div/div[2]/div[2]/ul/li[5]/a/i"}
+  (Session info: chrome=74.0.3729.131)
+  (Driver info: chromedriver=2.46.628402 (536cd7adbad73a3783fdc2cab92ab2ba7ec361e1),platform=Windows NT 10.0.17763 x86_64)
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.23' class='none'>
+    <td class='errorCase'><div class='testcase'>Payment)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.23')" >
+        错误</a>
+
+    <div id='div_ft2.23' class="popup_window">
+        <pre>ft2.23: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test26_financial_payment.py", line 29, in tearDownClass
+    logout.log_out(cls)
+  File "W:\PycharmProjects\automation_fky\fky_common\logout.py", line 12, in log_out
+    self.driver.find_element_by_xpath('/html/body/div[1]/div[1]/div/div[2]/div[2]/ul/li[5]/a/i').click()
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[1]/div[1]/div/div[2]/div[2]/ul/li[5]/a/i"}
+  (Session info: chrome=74.0.3729.131)
+  (Driver info: chromedriver=2.46.628402 (536cd7adbad73a3783fdc2cab92ab2ba7ec361e1),platform=Windows NT 10.0.17763 x86_64)
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft2.24' class='none'>
+    <td class='errorCase'><div class='testcase'>ExpenseRequisition)</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft2.24')" >
+        错误</a>
+
+    <div id='div_ft2.24' class="popup_window">
+        <pre>ft2.24: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test32_expenses_requisition.py", line 32, in tearDownClass
+    logout.log_out(cls)
+  File "W:\PycharmProjects\automation_fky\fky_common\logout.py", line 12, in log_out
+    self.driver.find_element_by_xpath('/html/body/div[1]/div[1]/div/div[2]/div[2]/ul/li[5]/a/i').click()
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 394, in find_element_by_xpath
+    return self.find_element(by=By.XPATH, value=xpath)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 978, in find_element
+    'value': value})['value']
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\webdriver.py", line 321, in execute
+    self.error_handler.check_response(response)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\selenium\webdriver\remote\errorhandler.py", line 242, in check_response
+    raise exception_class(message, screen, stacktrace)
+selenium.common.exceptions.NoSuchElementException: Message: no such element: Unable to locate element: {"method":"xpath","selector":"/html/body/div[1]/div[1]/div/div[2]/div[2]/ul/li[5]/a/i"}
+  (Session info: chrome=74.0.3729.131)
+  (Driver info: chromedriver=2.46.628402 (536cd7adbad73a3783fdc2cab92ab2ba7ec361e1),platform=Windows NT 10.0.17763 x86_64)
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+    <tr class='errorClass'>
+        <td>fky_testsuits.test02_announcement.Announce</td>
+        <td>4</td>
+        <td>0</td>
+        <td>0</td>
+        <td>4</td>
+        <td><a href="javascript:showClassDetail('c3',4)">详情</a></td>
+    </tr>
+
+<tr id='ft3.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test1_add_notice</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.1')" >
+        错误</a>
+
+    <div id='div_ft3.1' class="popup_window">
+        <pre>ft3.1: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test02_announcement.py", line 44, in test1_add_notice
+    announce.add_gonggao(title1, content)
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\announcement.py", line 43, in add_gonggao
+    self.clicked(self.fbfw_1)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test2_query_notice</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.2')" >
+        错误</a>
+
+    <div id='div_ft3.2' class="popup_window">
+        <pre>ft3.2: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test02_announcement.py", line 58, in test2_query_notice
+    title1 = announce.get_notice_title()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\announcement.py", line 71, in get_notice_title
+    return self.get_text(self.notice_title_1)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 279, in get_text
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test3_save_notice</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.3')" >
+        错误</a>
+
+    <div id='div_ft3.3' class="popup_window">
+        <pre>ft3.3: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test02_announcement.py", line 72, in test3_save_notice
+    announce.add_btnn()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\announcement.py", line 22, in add_btnn
+    self.clicked(self.add_btn)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft3.4' class='none'>
+    <td class='errorCase'><div class='testcase'>test4_change_notice</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft3.4')" >
+        错误</a>
+
+    <div id='div_ft3.4' class="popup_window">
+        <pre>ft3.4: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test02_announcement.py", line 90, in test4_change_notice
+    announce.change_gonggao()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\announcement.py", line 85, in change_gonggao
+    self.clicked(self.caogao)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+    <tr class='passClass'>
+        <td>fky_testsuits.test03_report.Report</td>
+        <td>4</td>
+        <td>4</td>
+        <td>0</td>
+        <td>0</td>
+        <td><a href="javascript:showClassDetail('c4',4)">详情</a></td>
+    </tr>
+
+<tr id='pt4.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test1_add_dayreport</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test2_save_dayreport</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test3_edit_dayreport</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt4.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test4_export_report</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+    <tr class='errorClass'>
+        <td>fky_testsuits.test04_switch_company.Switchcompany</td>
+        <td>5</td>
+        <td>0</td>
+        <td>0</td>
+        <td>5</td>
+        <td><a href="javascript:showClassDetail('c5',5)">详情</a></td>
+    </tr>
+
+<tr id='ft5.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test1_switch_company</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.1')" >
+        错误</a>
+
+    <div id='div_ft5.1' class="popup_window">
+        <pre>ft5.1: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test04_switch_company.py", line 42, in test1_switch_company
+    switchcompany.switch_company()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\switchCompany.py", line 21, in switch_company
+    self.clicked(self.qiehuan_company)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft5.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test2_switch_company</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.2')" >
+        错误</a>
+
+    <div id='div_ft5.2' class="popup_window">
+        <pre>ft5.2: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test04_switch_company.py", line 58, in test2_switch_company
+    switchcompany.switch_company()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\switchCompany.py", line 21, in switch_company
+    self.clicked(self.qiehuan_company)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft5.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test3_create_company</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.3')" >
+        错误</a>
+
+    <div id='div_ft5.3' class="popup_window">
+        <pre>ft5.3: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test04_switch_company.py", line 69, in test3_create_company
+    switchcompany.create_com()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\switchCompany.py", line 68, in create_com
+    self.clicked(self.chuangjian_company)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft5.4' class='none'>
+    <td class='errorCase'><div class='testcase'>test4_query_companylist</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.4')" >
+        错误</a>
+
+    <div id='div_ft5.4' class="popup_window">
+        <pre>ft5.4: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test04_switch_company.py", line 97, in test4_query_companylist
+    switchcompany.query_company()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\switchCompany.py", line 110, in query_company
+    self.clicked(self.company_list)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft5.5' class='none'>
+    <td class='errorCase'><div class='testcase'>test5_export_comp</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft5.5')" >
+        错误</a>
+
+    <div id='div_ft5.5' class="popup_window">
+        <pre>ft5.5: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test04_switch_company.py", line 110, in test5_export_comp
+    switchcompany.click_export()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\switchCompany.py", line 122, in click_export
+    self.clicked(self.company_list)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+    <tr class='errorClass'>
+        <td>fky_testsuits.test21_project_list.Projectlist</td>
+        <td>7</td>
+        <td>6</td>
+        <td>0</td>
+        <td>1</td>
+        <td><a href="javascript:showClassDetail('c6',7)">详情</a></td>
+    </tr>
+
+<tr id='ft6.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test1_add_project</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft6.1')" >
+        错误</a>
+
+    <div id='div_ft6.1' class="popup_window">
+        <pre>ft6.1: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test21_project_list.py", line 37, in test1_add_project
+    pj.click_addproject()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\projectList.py", line 58, in click_addproject
+    self.clicked(self.xinzeng)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt6.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test2_query_project</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt6.2')" >
+        通过</a>
+
+    <div id='div_pt6.2' class="popup_window">
+        <pre>pt6.2: --- Logging error ---
+Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test21_project_list.py", line 72, in test2_query_project
+    self.assertEqual(pj.gain_xmmc(), xmmc)
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\projectList.py", line 125, in gain_xmmc
+    return self.get_text(self.hqxmmc)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 279, in get_text
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\logging\__init__.py", line 1034, in emit
+    msg = self.format(record)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\logging\__init__.py", line 880, in format
+    return fmt.format(record)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\logging\__init__.py", line 619, in format
+    record.message = record.getMessage()
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\logging\__init__.py", line 380, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "W:/PycharmProjects/automation_fky/fky_testsuits/TestRunner.py", line 28, in &lt;module&gt;
+    runner.run(suite)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\HTMLTestRunner_PY3.py", line 721, in run
+    test(result)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 663, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test21_project_list.py", line 75, in test2_query_project
+    logger.error("项目查询失败！", e)
+Message: '项目查询失败！'
+Arguments: (TimeoutException('定位元素超时，请尝试其他定位方式'),)
+--- Logging error ---
+Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test21_project_list.py", line 72, in test2_query_project
+    self.assertEqual(pj.gain_xmmc(), xmmc)
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\projectList.py", line 125, in gain_xmmc
+    return self.get_text(self.hqxmmc)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 279, in get_text
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\logging\__init__.py", line 1034, in emit
+    msg = self.format(record)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\logging\__init__.py", line 880, in format
+    return fmt.format(record)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\logging\__init__.py", line 619, in format
+    record.message = record.getMessage()
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\logging\__init__.py", line 380, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "W:/PycharmProjects/automation_fky/fky_testsuits/TestRunner.py", line 28, in &lt;module&gt;
+    runner.run(suite)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\HTMLTestRunner_PY3.py", line 721, in run
+    test(result)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 663, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test21_project_list.py", line 75, in test2_query_project
+    logger.error("项目查询失败！", e)
+Message: '项目查询失败！'
+Arguments: (TimeoutException('定位元素超时，请尝试其他定位方式'),)
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt6.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test3_jinyong_project</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test4_qiyong_project</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test5_modify_project</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test6_import_project</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt6.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test7_export_project</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+    <tr class='errorClass'>
+        <td>fky_testsuits.test22_contract_management.Contract</td>
+        <td>7</td>
+        <td>5</td>
+        <td>0</td>
+        <td>2</td>
+        <td><a href="javascript:showClassDetail('c7',7)">详情</a></td>
+    </tr>
+
+<tr id='pt7.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test2_jinyong_contract</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.1')" >
+        通过</a>
+
+    <div id='div_pt7.1' class="popup_window">
+        <pre>pt7.1: --- Logging error ---
+Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test22_contract_management.py", line 51, in test2_jinyong_contract
+    self.assertEqual("禁用", ht.gain_contractState()[0])
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 839, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 1220, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 680, in fail
+    raise self.failureException(msg)
+AssertionError: '禁用' != ''
+- 禁用
++ 
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\logging\__init__.py", line 1034, in emit
+    msg = self.format(record)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\logging\__init__.py", line 880, in format
+    return fmt.format(record)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\logging\__init__.py", line 619, in format
+    record.message = record.getMessage()
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\logging\__init__.py", line 380, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "W:/PycharmProjects/automation_fky/fky_testsuits/TestRunner.py", line 28, in &lt;module&gt;
+    runner.run(suite)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\HTMLTestRunner_PY3.py", line 721, in run
+    test(result)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 663, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test22_contract_management.py", line 54, in test2_jinyong_contract
+    logger.error("禁用合同失败！", e)
+Message: '禁用合同失败！'
+Arguments: (AssertionError("'禁用' != ''\n- 禁用\n+ \n"),)
+--- Logging error ---
+Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test22_contract_management.py", line 51, in test2_jinyong_contract
+    self.assertEqual("禁用", ht.gain_contractState()[0])
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 839, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 1220, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 680, in fail
+    raise self.failureException(msg)
+AssertionError: '禁用' != ''
+- 禁用
++ 
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\logging\__init__.py", line 1034, in emit
+    msg = self.format(record)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\logging\__init__.py", line 880, in format
+    return fmt.format(record)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\logging\__init__.py", line 619, in format
+    record.message = record.getMessage()
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\logging\__init__.py", line 380, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "W:/PycharmProjects/automation_fky/fky_testsuits/TestRunner.py", line 28, in &lt;module&gt;
+    runner.run(suite)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\HTMLTestRunner_PY3.py", line 721, in run
+    test(result)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 663, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test22_contract_management.py", line 54, in test2_jinyong_contract
+    logger.error("禁用合同失败！", e)
+Message: '禁用合同失败！'
+Arguments: (AssertionError("'禁用' != ''\n- 禁用\n+ \n"),)
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt7.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test3_qiyong_contract</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_pt7.2')" >
+        通过</a>
+
+    <div id='div_pt7.2' class="popup_window">
+        <pre>pt7.2: --- Logging error ---
+Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test22_contract_management.py", line 62, in test3_qiyong_contract
+    self.assertEqual("正常",ht.gain_contractState()[0])
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 839, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 1220, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 680, in fail
+    raise self.failureException(msg)
+AssertionError: '正常' != ''
+- 正常
++ 
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\logging\__init__.py", line 1034, in emit
+    msg = self.format(record)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\logging\__init__.py", line 880, in format
+    return fmt.format(record)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\logging\__init__.py", line 619, in format
+    record.message = record.getMessage()
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\logging\__init__.py", line 380, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "W:/PycharmProjects/automation_fky/fky_testsuits/TestRunner.py", line 28, in &lt;module&gt;
+    runner.run(suite)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\HTMLTestRunner_PY3.py", line 721, in run
+    test(result)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 663, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test22_contract_management.py", line 65, in test3_qiyong_contract
+    logger.error("启用合同失败！", e)
+Message: '启用合同失败！'
+Arguments: (AssertionError("'正常' != ''\n- 正常\n+ \n"),)
+--- Logging error ---
+Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test22_contract_management.py", line 62, in test3_qiyong_contract
+    self.assertEqual("正常",ht.gain_contractState()[0])
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 839, in assertEqual
+    assertion_func(first, second, msg=msg)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 1220, in assertMultiLineEqual
+    self.fail(self._formatMessage(msg, standardMsg))
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 680, in fail
+    raise self.failureException(msg)
+AssertionError: '正常' != ''
+- 正常
++ 
+
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\logging\__init__.py", line 1034, in emit
+    msg = self.format(record)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\logging\__init__.py", line 880, in format
+    return fmt.format(record)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\logging\__init__.py", line 619, in format
+    record.message = record.getMessage()
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\logging\__init__.py", line 380, in getMessage
+    msg = msg % self.args
+TypeError: not all arguments converted during string formatting
+Call stack:
+  File "W:/PycharmProjects/automation_fky/fky_testsuits/TestRunner.py", line 28, in &lt;module&gt;
+    runner.run(suite)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\site-packages\HTMLTestRunner_PY3.py", line 721, in run
+    test(result)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\suite.py", line 122, in run
+    test(result)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 663, in __call__
+    return self.run(*args, **kwds)
+  File "C:\Users\Kejie\AppData\Local\Programs\Python\Python37\lib\unittest\case.py", line 615, in run
+    testMethod()
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test22_contract_management.py", line 65, in test3_qiyong_contract
+    logger.error("启用合同失败！", e)
+Message: '启用合同失败！'
+Arguments: (AssertionError("'正常' != ''\n- 正常\n+ \n"),)
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt7.3' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test5_query_htbh</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='ft7.4' class='none'>
+    <td class='errorCase'><div class='testcase'>test6_query_htmc</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft7.4')" >
+        错误</a>
+
+    <div id='div_ft7.4' class="popup_window">
+        <pre>ft7.4: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test22_contract_management.py", line 98, in test6_query_htmc
+    htmc_list = ht.get_htmc()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\contractManagement.py", line 157, in get_htmc
+    return self.get_texts(self.htmc)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 441, in get_texts
+    els = self.find_elements(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 183, in find_elements
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft7.5' class='none'>
+    <td class='errorCase'><div class='testcase'>test7_query_htzt</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft7.5')" >
+        错误</a>
+
+    <div id='div_ft7.5' class="popup_window">
+        <pre>ft7.5: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test22_contract_management.py", line 107, in test7_query_htzt
+    htzt_1 = ht.gain_contractState()[0]
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\contractManagement.py", line 108, in gain_contractState
+    return self.get_texts(self.contractState)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 441, in get_texts
+    els = self.find_elements(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 183, in find_elements
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt7.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test8_import_contract</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt7.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test9_export_contract</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+    <tr class='errorClass'>
+        <td>fky_testsuits.test23_customers_management.Customersmanagement</td>
+        <td>7</td>
+        <td>2</td>
+        <td>0</td>
+        <td>5</td>
+        <td><a href="javascript:showClassDetail('c8',7)">详情</a></td>
+    </tr>
+
+<tr id='ft8.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test1_add_customers</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.1')" >
+        错误</a>
+
+    <div id='div_ft8.1' class="popup_window">
+        <pre>ft8.1: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test23_customers_management.py", line 35, in test1_add_customers
+    cm.click_xinzengKS()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\customersManagement.py", line 20, in click_xinzengKS
+    self.clicked(self.xinzhenng)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft8.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test2_query_customers</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.2')" >
+        错误</a>
+
+    <div id='div_ft8.2' class="popup_window">
+        <pre>ft8.2: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test23_customers_management.py", line 51, in test2_query_customers
+    ksmc = cm.gain_ksmc()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\customersManagement.py", line 75, in gain_ksmc
+    return  self.get_text(self.hqksmc)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 279, in get_text
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft8.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test3_jinyong_customers</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.3')" >
+        错误</a>
+
+    <div id='div_ft8.3' class="popup_window">
+        <pre>ft8.3: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test23_customers_management.py", line 64, in test3_jinyong_customers
+    cm.click_jingyong()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\customersManagement.py", line 105, in click_jingyong
+    self.clicked(self.jingyong)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft8.4' class='none'>
+    <td class='errorCase'><div class='testcase'>test4_qiyong_customers</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.4')" >
+        错误</a>
+
+    <div id='div_ft8.4' class="popup_window">
+        <pre>ft8.4: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test23_customers_management.py", line 75, in test4_qiyong_customers
+    cm.click_qiyonng()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\customersManagement.py", line 111, in click_qiyonng
+    self.clicked(self.qiyong)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft8.5' class='none'>
+    <td class='errorCase'><div class='testcase'>test5_modify_customers</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft8.5')" >
+        错误</a>
+
+    <div id='div_ft8.5' class="popup_window">
+        <pre>ft8.5: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test23_customers_management.py", line 88, in test5_modify_customers
+    cm.amend_customers(ksmc2)
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\customersManagement.py", line 117, in amend_customers
+    self.clicked(self.xiugai)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt8.6' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test6_import_customers</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt8.7' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test7_export_customers</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+    <tr class='errorClass'>
+        <td>fky_testsuits.test24_procedural_model.ProcedModel</td>
+        <td>12</td>
+        <td>1</td>
+        <td>0</td>
+        <td>11</td>
+        <td><a href="javascript:showClassDetail('c9',12)">详情</a></td>
+    </tr>
+
+<tr id='pt9.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_into_lcgl</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='ft9.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test02_query_daiban</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft9.2')" >
+        错误</a>
+
+    <div id='div_ft9.2' class="popup_window">
+        <pre>ft9.2: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test24_procedural_model.py", line 41, in test02_query_daiban
+    dbsx.click_zhankai()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\proceduralModel.py", line 34, in click_zhankai
+    self.clicked(self.zhankai)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft9.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test03_query_daiban</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft9.3')" >
+        错误</a>
+
+    <div id='div_ft9.3' class="popup_window">
+        <pre>ft9.3: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test24_procedural_model.py", line 55, in test03_query_daiban
+    dbsx.click_zhankai()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\proceduralModel.py", line 34, in click_zhankai
+    self.clicked(self.zhankai)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft9.4' class='none'>
+    <td class='errorCase'><div class='testcase'>test04_query_daiban</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft9.4')" >
+        错误</a>
+
+    <div id='div_ft9.4' class="popup_window">
+        <pre>ft9.4: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test24_procedural_model.py", line 69, in test04_query_daiban
+    dbsx.click_zhankai()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\proceduralModel.py", line 34, in click_zhankai
+    self.clicked(self.zhankai)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft9.5' class='none'>
+    <td class='errorCase'><div class='testcase'>test05_query_daiban</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft9.5')" >
+        错误</a>
+
+    <div id='div_ft9.5' class="popup_window">
+        <pre>ft9.5: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test24_procedural_model.py", line 83, in test05_query_daiban
+    dbsx.click_zhankai()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\proceduralModel.py", line 34, in click_zhankai
+    self.clicked(self.zhankai)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft9.6' class='none'>
+    <td class='errorCase'><div class='testcase'>test06_query_faqi</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft9.6')" >
+        错误</a>
+
+    <div id='div_ft9.6' class="popup_window">
+        <pre>ft9.6: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test24_procedural_model.py", line 97, in test06_query_faqi
+    dbsx.click_zhankai()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\proceduralModel.py", line 34, in click_zhankai
+    self.clicked(self.zhankai)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft9.7' class='none'>
+    <td class='errorCase'><div class='testcase'>test07_query_faqi</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft9.7')" >
+        错误</a>
+
+    <div id='div_ft9.7' class="popup_window">
+        <pre>ft9.7: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test24_procedural_model.py", line 111, in test07_query_faqi
+    dbsx.click_zhankai()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\proceduralModel.py", line 34, in click_zhankai
+    self.clicked(self.zhankai)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft9.8' class='none'>
+    <td class='errorCase'><div class='testcase'>test08_query_faqi</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft9.8')" >
+        错误</a>
+
+    <div id='div_ft9.8' class="popup_window">
+        <pre>ft9.8: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test24_procedural_model.py", line 125, in test08_query_faqi
+    dbsx.click_zhankai()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\proceduralModel.py", line 34, in click_zhankai
+    self.clicked(self.zhankai)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft9.9' class='none'>
+    <td class='errorCase'><div class='testcase'>test09_query_splc</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft9.9')" >
+        错误</a>
+
+    <div id='div_ft9.9' class="popup_window">
+        <pre>ft9.9: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test24_procedural_model.py", line 139, in test09_query_splc
+    dbsx.click_zhankai()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\proceduralModel.py", line 34, in click_zhankai
+    self.clicked(self.zhankai)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft9.10' class='none'>
+    <td class='errorCase'><div class='testcase'>test10_query_splc</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft9.10')" >
+        错误</a>
+
+    <div id='div_ft9.10' class="popup_window">
+        <pre>ft9.10: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test24_procedural_model.py", line 153, in test10_query_splc
+    dbsx.click_zhankai()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\proceduralModel.py", line 34, in click_zhankai
+    self.clicked(self.zhankai)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft9.11' class='none'>
+    <td class='errorCase'><div class='testcase'>test11_query_splc</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft9.11')" >
+        错误</a>
+
+    <div id='div_ft9.11' class="popup_window">
+        <pre>ft9.11: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test24_procedural_model.py", line 167, in test11_query_splc
+    dbsx.click_zhankai()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\proceduralModel.py", line 34, in click_zhankai
+    self.clicked(self.zhankai)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft9.12' class='none'>
+    <td class='errorCase'><div class='testcase'>test12_query_splc</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft9.12')" >
+        错误</a>
+
+    <div id='div_ft9.12' class="popup_window">
+        <pre>ft9.12: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test24_procedural_model.py", line 181, in test12_query_splc
+    dbsx.click_zhankai()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\proceduralModel.py", line 34, in click_zhankai
+    self.clicked(self.zhankai)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+    <tr class='errorClass'>
+        <td>fky_testsuits.test25_loan_application.LoanApplicat</td>
+        <td>7</td>
+        <td>2</td>
+        <td>0</td>
+        <td>5</td>
+        <td><a href="javascript:showClassDetail('c10',7)">详情</a></td>
+    </tr>
+
+<tr id='pt10.1' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test01_add_jiekuan</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt10.2' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test02_add_jiekuan</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='ft10.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test03_caiwuzhifu</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft10.3')" >
+        错误</a>
+
+    <div id='div_ft10.3' class="popup_window">
+        <pre>ft10.3: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test25_loan_application.py", line 87, in test03_caiwuzhifu
+    danju_list = cwzf.get_danjubianhao_list()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\financialPayment.py", line 22, in get_danjubianhao_list
+    self.select_text(self.tiaoshu, "200")
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 296, in select_text
+    el = Select(self.find_element(selector))
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft10.4' class='none'>
+    <td class='errorCase'><div class='testcase'>test03_huankuan</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft10.4')" >
+        错误</a>
+
+    <div id='div_ft10.4' class="popup_window">
+        <pre>ft10.4: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test25_loan_application.py", line 108, in test03_huankuan
+    hk.select_200()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\loanApplication.py", line 103, in select_200
+    self.select_text(self.tiaoshu, "200")
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 296, in select_text
+    el = Select(self.find_element(selector))
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft10.5' class='none'>
+    <td class='errorCase'><div class='testcase'>test04_export</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft10.5')" >
+        错误</a>
+
+    <div id='div_ft10.5' class="popup_window">
+        <pre>ft10.5: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test25_loan_application.py", line 188, in test04_export
+    jk.click_export()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\loanApplication.py", line 162, in click_export
+    self.clicked(self.export_btn)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft10.6' class='none'>
+    <td class='errorCase'><div class='testcase'>test05_query_shiyou</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft10.6')" >
+        错误</a>
+
+    <div id='div_ft10.6' class="popup_window">
+        <pre>ft10.6: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test25_loan_application.py", line 203, in test05_query_shiyou
+    n = random.randint(1, len(jk.get_shiyou_list())) - 1
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\loanApplication.py", line 82, in get_shiyou_list
+    return self.get_texts(self.shiyou_list)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 441, in get_texts
+    els = self.find_elements(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 183, in find_elements
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft10.7' class='none'>
+    <td class='errorCase'><div class='testcase'>test06_query_state</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft10.7')" >
+        错误</a>
+
+    <div id='div_ft10.7' class="popup_window">
+        <pre>ft10.7: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test25_loan_application.py", line 217, in test06_query_state
+    n = random.randint(1, len(jk.get_dj_state())) - 1
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\loanApplication.py", line 94, in get_dj_state
+    return self.get_texts(self.dj_state)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 441, in get_texts
+    els = self.find_elements(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 183, in find_elements
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+    <tr class='errorClass'>
+        <td>fky_testsuits.test26_financial_payment.Payment</td>
+        <td>3</td>
+        <td>0</td>
+        <td>0</td>
+        <td>3</td>
+        <td><a href="javascript:showClassDetail('c11',3)">详情</a></td>
+    </tr>
+
+<tr id='ft11.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test01_query_sker</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft11.1')" >
+        错误</a>
+
+    <div id='div_ft11.1' class="popup_window">
+        <pre>ft11.1: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test26_financial_payment.py", line 35, in test01_query_sker
+    cwzf.click_zhankai()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\financialPayment.py", line 54, in click_zhankai
+    self.clicked(self.zhankai)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft11.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test02_query_type</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft11.2')" >
+        错误</a>
+
+    <div id='div_ft11.2' class="popup_window">
+        <pre>ft11.2: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test26_financial_payment.py", line 49, in test02_query_type
+    cwzf.click_zhankai()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\financialPayment.py", line 54, in click_zhankai
+    self.clicked(self.zhankai)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft11.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test03_export</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft11.3')" >
+        错误</a>
+
+    <div id='div_ft11.3' class="popup_window">
+        <pre>ft11.3: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test26_financial_payment.py", line 63, in test03_export
+    cwzf.click_export()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\financialPayment.py", line 77, in click_export
+    self.clicked(self.export)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+    <tr class='errorClass'>
+        <td>fky_testsuits.test32_expenses_requisition.ExpenseRequisition</td>
+        <td>8</td>
+        <td>2</td>
+        <td>0</td>
+        <td>6</td>
+        <td><a href="javascript:showClassDetail('c12',8)">详情</a></td>
+    </tr>
+
+<tr id='ft12.1' class='none'>
+    <td class='errorCase'><div class='testcase'>test01_rcsq_btzd</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft12.1')" >
+        错误</a>
+
+    <div id='div_ft12.1' class="popup_window">
+        <pre>ft12.1: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test32_expenses_requisition.py", line 37, in test01_rcsq_btzd
+    expenses.click_add_rcsq()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\expensesRequisition.py", line 18, in click_add_rcsq
+    self.clicked(self.rcsq)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft12.2' class='none'>
+    <td class='errorCase'><div class='testcase'>test02_submit_rcsq</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft12.2')" >
+        错误</a>
+
+    <div id='div_ft12.2' class="popup_window">
+        <pre>ft12.2: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test32_expenses_requisition.py", line 46, in test02_submit_rcsq
+    expenses.click_add_rcsq()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\expensesRequisition.py", line 18, in click_add_rcsq
+    self.clicked(self.rcsq)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft12.3' class='none'>
+    <td class='errorCase'><div class='testcase'>test03_save_rcsq</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft12.3')" >
+        错误</a>
+
+    <div id='div_ft12.3' class="popup_window">
+        <pre>ft12.3: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test32_expenses_requisition.py", line 90, in test03_save_rcsq
+    expenses.click_add_rcsq()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\expensesRequisition.py", line 18, in click_add_rcsq
+    self.clicked(self.rcsq)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='pt12.4' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test04_edit_rcsq</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='pt12.5' class='hiddenRow'>
+    <td class='none'><div class='testcase'>test05_del_cgdj</div></td>
+    <td colspan='5' align='center'>通过</td>
+</tr>
+
+<tr id='ft12.6' class='none'>
+    <td class='errorCase'><div class='testcase'>test06_query_djbh</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft12.6')" >
+        错误</a>
+
+    <div id='div_ft12.6' class="popup_window">
+        <pre>ft12.6: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test32_expenses_requisition.py", line 160, in test06_query_djbh
+    expenses.click_clear()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\expensesRequisition.py", line 200, in click_clear
+    self.click_zhankai()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\expensesRequisition.py", line 181, in click_zhankai
+    self.clicked(self.zhankai)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft12.7' class='none'>
+    <td class='errorCase'><div class='testcase'>test07_query_djzt</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft12.7')" >
+        错误</a>
+
+    <div id='div_ft12.7' class="popup_window">
+        <pre>ft12.7: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test32_expenses_requisition.py", line 182, in test07_query_djzt
+    expenses.click_clear()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\expensesRequisition.py", line 200, in click_clear
+    self.click_zhankai()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\expensesRequisition.py", line 181, in click_zhankai
+    self.clicked(self.zhankai)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+<tr id='ft12.8' class='none'>
+    <td class='errorCase'><div class='testcase'>test07_query_shiyou</div></td>
+    <td colspan='5' align='center'>
+
+    <!--css div popup start-->
+    <a class="popup_link" onfocus='this.blur();' href="javascript:showTestDetail('div_ft12.8')" >
+        错误</a>
+
+    <div id='div_ft12.8' class="popup_window">
+        <pre>ft12.8: Traceback (most recent call last):
+  File "W:\PycharmProjects\automation_fky\fky_testsuits\test32_expenses_requisition.py", line 171, in test07_query_shiyou
+    expenses.click_clear()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\expensesRequisition.py", line 200, in click_clear
+    self.click_zhankai()
+  File "W:\PycharmProjects\automation_fky\fky_pageobjects\expensesRequisition.py", line 181, in click_zhankai
+    self.clicked(self.zhankai)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 231, in clicked
+    el = self.find_element(selector)
+  File "W:\PycharmProjects\automation_fky\framework\base_page.py", line 127, in find_element
+    raise TimeoutException(time_out_error)
+selenium.common.exceptions.TimeoutException: Message: 定位元素超时，请尝试其他定位方式
+
+</pre>
+    </div>
+    <!--css div popup end-->
+
+    </td>
+</tr>
+
+        <tr id='total_row'>
+            <td>总计</td>
+            <td>90</td>
+            <td>24</td>
+            <td>0</td>
+            <td>66</td>
+            <td>&nbsp;</td>
+        </tr>
+    </table>
+
+        <div id='ending'>&nbsp;</div>
+        
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('chart'));
+
+        // 指定图表的配置项和数据
+        var option = {
+            title : {
+                text: '测试执行情况',
+                x:'center'
+            },
+            tooltip : {
+                trigger: 'item',
+                formatter: "{a} <br/>{b} : {c} ({d}%)"
+            },
+            color: ['#5cb85c', 'grey', '#d9534f'],
+            legend: {
+                orient: 'vertical',
+                left: 'left',
+                data: ['通过','失败','错误']
+            },
+            series : [
+                {
+                    name: '测试执行情况',
+                    type: 'pie',
+                    radius : '60%',
+                    center: ['50%', '60%'],
+                    data:[
+                        {value:24, name:'通过'},
+                        {value:0, name:'失败'},
+                        {value:66, name:'错误'}
+                    ],
+                    itemStyle: {
+                        emphasis: {
+                            shadowBlur: 10,
+                            shadowOffsetX: 0,
+                            shadowColor: 'rgba(0, 0, 0, 0.5)'
+                        }
+                    }
+                }
+            ]
+        };
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+    
+    </div>
+</body>
+</html>

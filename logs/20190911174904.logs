@@ -1,0 +1,13 @@
+2019-09-11 17:49:04,965 - BrowserEngine - INFO - 你选择了 Chrome 浏览器
+2019-09-11 17:49:04,965 - BrowserEngine - INFO - 测试服务器的URL是 : https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-11 17:49:08,477 - BrowserEngine - INFO - 打开Chrome浏览器。
+2019-09-11 17:49:20,142 - BrowserEngine - INFO - 打开网址:https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-11 17:49:25,362 - Login - INFO - 登录成功。
+2019-09-11 17:49:26,848 - BasePage - INFO - 点击元素：财务管理 成功.
+2019-09-11 17:49:28,976 - BasePage - INFO - 点击元素：财务支付 成功.
+2019-09-11 17:49:31,112 - BasePage - INFO - 点击元素：  成功.
+2019-09-11 17:49:33,596 - BasePage - INFO - 产品分类中选择了 '20'
+2019-09-11 17:49:36,100 - BasePage - INFO - 获取元素文本：['借款单', '借款单', '借款单', '借款单', '借款单', '借款单', '借款单', '借款单', '借款单', '', '', '', '', '', '', '', '', '', '', ''] 成功。
+2019-09-11 17:49:37,187 - BasePage - INFO - 产品分类中选择了 '20'
+2019-09-11 17:49:39,478 - BasePage - INFO - 获取元素文本：['借款单', '借款单', '借款单', '借款单', '借款单', '借款单', '借款单', '借款单', '借款单', '', '', '', '', '', '', '', '', '', '', ''] 成功。
+2019-09-11 17:50:05,136 - Logout - INFO - 登出成功。

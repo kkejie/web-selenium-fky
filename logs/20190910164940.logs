@@ -1,0 +1,17 @@
+2019-09-10 16:49:40,777 - BrowserEngine - INFO - 你选择了 Chrome 浏览器
+2019-09-10 16:49:40,777 - BrowserEngine - INFO - 测试服务器的URL是 : https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-10 16:49:43,666 - BrowserEngine - INFO - 打开Chrome浏览器。
+2019-09-10 16:49:56,101 - BrowserEngine - INFO - 打开网址:https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-10 16:49:59,968 - Login - INFO - 登录成功。
+2019-09-10 16:50:01,317 - BasePage - INFO - 点击元素：首页 成功.
+2019-09-10 16:50:03,488 - BasePage - INFO - 点击元素：客商管理 成功.
+2019-09-10 16:50:05,656 - BasePage - INFO - 产品分类中选择了 '200'
+2019-09-10 16:50:07,816 - BasePage - INFO - 点击元素：  成功.
+2019-09-10 16:50:09,985 - BasePage - INFO - 产品分类中选择了 '合作伙伴'
+2019-09-10 16:50:12,138 - BasePage - INFO - 点击元素：查询 成功.
+2019-09-10 16:50:14,193 - BasePage - INFO - 获取元素文本：['合作伙伴'] 成功。
+2019-09-10 16:50:14,194 - Customersmanagement - INFO - 按客商分类查询成功！
+2019-09-10 16:50:15,348 - BasePage - INFO - 点击元素：清空 成功.
+2019-09-10 16:50:17,452 - BasePage - INFO - 点击元素：查询 成功.
+2019-09-10 16:50:19,540 - BasePage - INFO - 点击元素：  成功.
+2019-09-10 16:50:23,889 - Logout - INFO - 登出成功。

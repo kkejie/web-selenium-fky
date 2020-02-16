@@ -1,0 +1,21 @@
+2019-09-06 10:31:28,280 - BrowserEngine - INFO - 你选择了 Chrome 浏览器
+2019-09-06 10:31:28,281 - BrowserEngine - INFO - 测试服务器的URL是 : https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-06 10:31:32,923 - BrowserEngine - INFO - 打开Chrome浏览器。
+2019-09-06 10:31:46,169 - BrowserEngine - INFO - 打开网址:https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-06 10:31:51,579 - Login - INFO - 登录成功。
+2019-09-06 10:31:53,681 - BasePage - INFO - 点击元素：首页 成功.
+2019-09-06 10:31:55,837 - BasePage - INFO - 点击元素：系统管理 成功.
+2019-09-06 10:31:58,002 - BasePage - INFO - 点击元素：公司管理 成功.
+2019-09-06 10:32:00,245 - BasePage - INFO - 点击元素：公司信息 成功.
+2019-09-06 10:32:02,706 - BasePage - INFO - 点击元素：银行账户 成功.
+2019-09-06 10:32:04,765 - BasePage - INFO - 获取元素文本：123321123321123399 成功。
+2019-09-06 10:32:06,066 - BasePage - INFO - 在输入框中输入：中国招商银行
+2019-09-06 10:32:08,628 - BasePage - INFO - 在输入框中输入：123321123321123399
+2019-09-06 10:32:10,948 - BasePage - INFO - 产品分类中选择了 'CNY-中国人民币'
+2019-09-06 10:32:13,174 - BasePage - INFO - 产品分类中选择了 '收入户'
+2019-09-06 10:32:15,800 - BasePage - INFO - 点击元素：保存 成功.
+2019-09-06 10:32:17,873 - BasePage - INFO - 获取元素文本：存在相同银行账户，保存失败 成功。
+2019-09-06 10:32:18,988 - BasePage - INFO - 点击元素：确定 成功.
+2019-09-06 10:32:19,988 - CompanyInfo - INFO - 银行账户唯一性验证成功。
+2019-09-06 10:32:19,990 - BasePage - INFO - 隐性等待时间：1 秒
+2019-09-06 10:32:23,288 - Logout - INFO - 登出成功。

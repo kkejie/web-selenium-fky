@@ -1,0 +1,13 @@
+2019-09-23 09:09:35,821 - BrowserEngine - INFO - 你选择了 Chrome 浏览器
+2019-09-23 09:09:35,821 - BrowserEngine - INFO - 测试服务器的URL是 : https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-23 09:09:39,352 - BrowserEngine - INFO - 打开Chrome浏览器。
+2019-09-23 09:10:11,613 - BrowserEngine - INFO - 打开网址:https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-23 09:10:16,862 - Login - INFO - 登录成功。
+2019-09-23 09:10:18,412 - BasePage - INFO - 点击元素：系统管理 成功.
+2019-09-23 09:10:20,580 - BasePage - INFO - 点击元素：公司管理 成功.
+2019-09-23 09:10:22,846 - BasePage - INFO - 点击元素：员工管理 成功.
+2019-09-23 09:10:25,137 - BasePage - INFO - 点击元素：新增 成功.
+2019-09-23 09:10:28,945 - BasePage - INFO - 点击元素：保存 成功.
+2019-09-23 09:10:31,254 - BasePage - INFO - 获取元素文本：['真实姓名不能为空', '该选项不能为空', '该选项不能为空', '手机号码不能为空'] 成功。
+2019-09-23 09:10:32,630 - BasePage - INFO - 点击元素：取消 成功.
+2019-09-23 09:10:37,669 - Logout - INFO - 登出成功。

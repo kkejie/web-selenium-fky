@@ -1,0 +1,10 @@
+2019-09-10 16:59:25,771 - BrowserEngine - INFO - 你选择了 Chrome 浏览器
+2019-09-10 16:59:25,771 - BrowserEngine - INFO - 测试服务器的URL是 : https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-10 16:59:28,783 - BrowserEngine - INFO - 打开Chrome浏览器。
+2019-09-10 16:59:41,727 - BrowserEngine - INFO - 打开网址:https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-10 16:59:46,929 - Login - INFO - 登录成功。
+2019-09-10 16:59:48,065 - BasePage - INFO - 点击元素：首页 成功.
+2019-09-10 16:59:50,231 - BasePage - INFO - 点击元素：客商管理 成功.
+2019-09-10 16:59:52,398 - BasePage - INFO - 产品分类中选择了 '200'
+2019-09-10 16:59:55,266 - BasePage - INFO - 获取元素文本：['禁用', '启用', '启用', '启用', '启用', '启用', '启用', '启用', '启用', '启用', '启用', '启用', '启用', '启用', '启用', '启用', '启用', '启用', '启用', '启用', '禁用', '启用', '启用', '启用', '启用', '启用', '启用', '启用', '启用', '启用', '启用', '启用', '启用', '启用', '启用', '启用', '启用', '启用'] 成功。
+2019-09-10 16:59:58,469 - Logout - INFO - 登出成功。

@@ -1,0 +1,54 @@
+2019-09-06 18:06:55,645 - BrowserEngine - INFO - 你选择了 Chrome 浏览器
+2019-09-06 18:06:55,645 - BrowserEngine - INFO - 测试服务器的URL是 : https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-06 18:06:59,033 - BrowserEngine - INFO - 打开Chrome浏览器。
+2019-09-06 18:07:11,073 - BrowserEngine - INFO - 打开网址:https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-06 18:07:15,856 - Login - INFO - 登录成功。
+2019-09-06 18:07:17,586 - BasePage - INFO - 点击元素：项目管理 成功.
+2019-09-06 18:07:19,810 - BasePage - INFO - 点击元素：项目主列表 成功.
+2019-09-06 18:07:21,935 - BasePage - INFO - 点击元素：新增 成功.
+2019-09-06 18:07:24,468 - BasePage - INFO - 在输入框中输入：项目354
+2019-09-06 18:07:26,619 - BasePage - INFO - 在输入框中输入：项目
+2019-09-06 18:07:28,759 - BasePage - INFO - 点击元素： 成功.
+2019-09-06 18:07:30,878 - BasePage - INFO - 点击元素： 成功.
+2019-09-06 18:07:33,199 - BasePage - INFO - 点击元素： 成功.
+2019-09-06 18:07:35,397 - BasePage - INFO - 点击元素：确认 成功.
+2019-09-06 18:07:37,515 - BasePage - INFO - 点击元素： 成功.
+2019-09-06 18:07:39,645 - BasePage - INFO - 选择元素成功.
+2019-09-06 18:07:41,882 - BasePage - INFO - 点击元素：确认 成功.
+2019-09-06 18:07:44,051 - BasePage - INFO - 点击元素： 成功.
+2019-09-06 18:07:46,226 - BasePage - INFO - 点击元素： 成功.
+2019-09-06 18:07:48,662 - BasePage - INFO - 点击元素：确定 成功.
+2019-09-06 18:07:50,785 - BasePage - INFO - 点击元素： 成功.
+2019-09-06 18:07:52,931 - BasePage - INFO - 点击元素： 成功.
+2019-09-06 18:07:55,112 - BasePage - INFO - 点击元素：确定 成功.
+2019-09-06 18:07:58,426 - BasePage - INFO - 在输入框中输入：18502925348
+2019-09-06 18:08:00,821 - BasePage - INFO - 在输入框中输入：gangyi@hotmail.com
+2019-09-06 18:08:03,017 - BasePage - INFO - 在输入框中输入：南昌
+2019-09-06 18:08:05,188 - BasePage - INFO - 在输入框中输入：115
+2019-09-06 18:08:07,405 - BasePage - INFO - 点击元素： 成功.
+2019-09-06 18:08:09,533 - BasePage - INFO - 点击元素：今天 成功.
+2019-09-06 18:08:11,718 - BasePage - INFO - 点击元素： 成功.
+2019-09-06 18:08:13,865 - BasePage - INFO - 点击元素：今天 成功.
+2019-09-06 18:08:16,033 - BasePage - INFO - 在输入框中输入：lalalaal
+2019-09-06 18:08:18,184 - BasePage - INFO - 点击元素：提交 成功.
+2019-09-06 18:08:20,291 - BasePage - INFO - 点击元素： 成功.
+2019-09-06 18:08:22,413 - BasePage - INFO - 点击元素：确 定 成功.
+2019-09-06 18:08:24,707 - BasePage - INFO - 点击元素：确定 成功.
+2019-09-06 18:08:27,318 - BasePage - INFO - 点击元素：首页 成功.
+2019-09-06 18:08:29,916 - BasePage - INFO - 点击元素：主办 成功.
+2019-09-06 18:08:30,982 - BasePage - INFO - 切换到句柄为CDwindow-957859C251AEF232D1C58302EA5439AB的窗口
+2019-09-06 18:08:33,983 - BasePage - INFO - 等待 2 秒
+2019-09-06 18:08:36,198 - BasePage - INFO - 点击元素：驳回 成功.
+2019-09-06 18:08:38,313 - BasePage - INFO - 点击元素：确定 成功.
+2019-09-06 18:08:40,314 - BasePage - INFO - 等待 1 秒
+2019-09-06 18:08:41,463 - BasePage - INFO - 点击元素：确定 成功.
+2019-09-06 18:08:44,464 - BasePage - INFO - 等待 2 秒
+2019-09-06 18:08:44,473 - BasePage - INFO - 切换到句柄为CDwindow-FFC7D7A5DA7F94C1434A41A97FF5A4C3的窗口
+2019-09-06 18:08:45,617 - BasePage - INFO - 点击元素：项目管理 成功.
+2019-09-06 18:08:47,992 - BasePage - INFO - 点击元素：项目主列表 成功.
+2019-09-06 18:08:50,046 - BasePage - INFO - 获取元素文本：柯洁 成功。
+2019-09-06 18:08:50,502 - BasePage - INFO - 截屏并保存到文件夹: /images
+2019-09-06 18:08:53,133 - BasePage - INFO - 点击元素：首页 成功.
+2019-09-06 18:08:55,612 - BasePage - INFO - 点击元素：主办 成功.
+2019-09-06 18:08:58,614 - BasePage - INFO - 等待 2 秒
+2019-09-06 18:08:58,635 - BasePage - INFO - 切换到句柄为CDwindow-465FA57B465A887CC2C327980B233855的窗口

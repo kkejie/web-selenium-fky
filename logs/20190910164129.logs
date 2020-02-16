@@ -1,0 +1,15 @@
+2019-09-10 16:41:29,093 - BrowserEngine - INFO - 你选择了 Chrome 浏览器
+2019-09-10 16:41:29,093 - BrowserEngine - INFO - 测试服务器的URL是 : https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-10 16:41:32,459 - BrowserEngine - INFO - 打开Chrome浏览器。
+2019-09-10 16:41:44,494 - BrowserEngine - INFO - 打开网址:https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-10 16:41:49,457 - Login - INFO - 登录成功。
+2019-09-10 16:42:05,379 - Customersmanagement - INFO - 启用客商成功！
+2019-09-10 16:42:12,201 - Customersmanagement - INFO - 启用客商成功！
+2019-09-10 16:42:19,139 - Customersmanagement - INFO - 启用客商成功！
+2019-09-10 16:42:26,075 - Customersmanagement - INFO - 启用客商成功！
+2019-09-10 16:42:33,063 - Customersmanagement - INFO - 启用客商成功！
+2019-09-10 16:42:40,078 - Customersmanagement - INFO - 启用客商成功！
+2019-09-10 16:42:42,028 - Customersmanagement - INFO - 客商v: 该客商无法启用
+2019-09-10 16:42:43,577 - Customersmanagement - INFO - 客商021: 该客商无法启用
+2019-09-10 16:42:45,133 - Customersmanagement - INFO - 客商Q: 该客商无法启用
+2019-09-10 16:42:46,736 - Customersmanagement - INFO - 客商M18: 该客商无法启用

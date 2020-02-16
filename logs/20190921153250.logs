@@ -1,0 +1,16 @@
+2019-09-21 15:32:51,194 - BrowserEngine - INFO - 你选择了 Chrome 浏览器
+2019-09-21 15:32:51,195 - BrowserEngine - INFO - 测试服务器的URL是 : https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-21 15:32:54,023 - BrowserEngine - INFO - 打开Chrome浏览器。
+2019-09-21 15:33:07,191 - BrowserEngine - INFO - 打开网址:https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-21 15:33:11,413 - Login - INFO - 登录成功。
+2019-09-21 15:33:12,858 - BasePage - INFO - 点击元素：借款申请 成功.
+2019-09-21 15:33:15,006 - BasePage - INFO - 获取元素文本：['已还清', '已支付', '已支付', '已支付', '已还清'] 成功。
+2019-09-21 15:33:16,122 - BasePage - INFO - 获取元素文本：['已还清', '已支付', '已支付', '已支付', '已还清'] 成功。
+2019-09-21 15:33:17,245 - BasePage - INFO - 点击元素：  成功.
+2019-09-21 15:33:19,376 - BasePage - INFO - 产品分类中选择了 '已还清'
+2019-09-21 15:33:21,524 - BasePage - INFO - 点击元素：查 询 成功.
+2019-09-21 15:33:23,672 - BasePage - INFO - 获取元素文本：['已还清', '已还清', '已还清', '已还清', '已还清'] 成功。
+2019-09-21 15:33:24,825 - BasePage - INFO - 点击元素：清 空 成功.
+2019-09-21 15:33:26,930 - BasePage - INFO - 点击元素：查 询 成功.
+2019-09-21 15:33:29,015 - BasePage - INFO - 点击元素：  成功.
+2019-09-21 15:33:32,357 - Logout - INFO - 登出成功。

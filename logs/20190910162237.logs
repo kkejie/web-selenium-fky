@@ -1,0 +1,28 @@
+2019-09-10 16:22:37,320 - BrowserEngine - INFO - 你选择了 Chrome 浏览器
+2019-09-10 16:22:37,320 - BrowserEngine - INFO - 测试服务器的URL是 : https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-10 16:22:40,348 - BrowserEngine - INFO - 打开Chrome浏览器。
+2019-09-10 16:22:52,700 - BrowserEngine - INFO - 打开网址:https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-10 16:22:58,098 - Login - INFO - 登录成功。
+2019-09-10 16:23:10,462 - Customersmanagement - INFO - 客商958: 该客商无法禁用
+2019-09-10 16:23:14,069 - Customersmanagement - INFO - 客商156: 该客商无法禁用
+2019-09-10 16:23:17,720 - Customersmanagement - INFO - 客商479: 该客商无法禁用
+2019-09-10 16:23:21,424 - Customersmanagement - INFO - 客商452: 该客商无法禁用
+2019-09-10 16:23:25,275 - Customersmanagement - INFO - 客商750: 该客商无法禁用
+2019-09-10 16:23:29,281 - Customersmanagement - INFO - 客商398: 该客商无法禁用
+2019-09-10 16:23:33,099 - Customersmanagement - INFO - 客商v: 该客商无法禁用
+2019-09-10 16:23:36,664 - Customersmanagement - INFO - 客商021: 该客商无法禁用
+2019-09-10 16:23:40,314 - Customersmanagement - INFO - 客商Q: 该客商无法禁用
+2019-09-10 16:23:43,886 - Customersmanagement - INFO - 客商M18: 该客商无法禁用
+2019-09-10 16:23:47,516 - Customersmanagement - INFO - 客商H: 该客商无法禁用
+2019-09-10 16:23:51,126 - Customersmanagement - INFO - 客商176: 该客商无法禁用
+2019-09-10 16:23:55,017 - Customersmanagement - INFO - 客商112: 该客商无法禁用
+2019-09-10 16:23:58,603 - Customersmanagement - INFO - 客商736: 该客商无法禁用
+2019-09-10 16:24:02,187 - Customersmanagement - INFO - 客商046: 该客商无法禁用
+2019-09-10 16:24:05,825 - Customersmanagement - INFO - 客商698: 该客商无法禁用
+2019-09-10 16:24:09,402 - Customersmanagement - INFO - 客商a: 该客商无法禁用
+2019-09-10 16:24:13,048 - Customersmanagement - INFO - 客商671: 该客商无法禁用
+2019-09-10 16:24:16,683 - Customersmanagement - INFO - 客商SJ1: 该客商无法禁用
+2019-09-10 16:24:20,318 - Customersmanagement - INFO - 客商222: 该客商无法禁用
+2019-09-10 16:24:23,902 - Customersmanagement - INFO - 客商82: 该客商无法禁用
+2019-09-10 16:24:27,479 - Customersmanagement - INFO - 客商111: 该客商无法禁用
+2019-09-10 16:24:31,106 - Customersmanagement - INFO - 客商9563: 该客商无法禁用

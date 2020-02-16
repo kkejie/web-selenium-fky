@@ -1,0 +1,93 @@
+2019-09-06 17:10:15,854 - BrowserEngine - INFO - 你选择了 Chrome 浏览器
+2019-09-06 17:10:15,854 - BrowserEngine - INFO - 测试服务器的URL是 : https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-06 17:10:19,434 - BrowserEngine - INFO - 打开Chrome浏览器。
+2019-09-06 17:10:30,517 - BrowserEngine - INFO - 打开网址:https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-06 17:10:36,188 - Login - INFO - 登录成功。
+2019-09-06 17:10:37,317 - BasePage - INFO - 点击元素：系统管理 成功.
+2019-09-06 17:10:39,512 - BasePage - INFO - 点击元素：公司管理 成功.
+2019-09-06 17:10:41,681 - BasePage - INFO - 点击元素： 成功.
+2019-09-06 17:10:43,943 - BasePage - INFO - 点击元素：发票识别设置 成功.
+2019-09-06 17:10:46,065 - BasePage - INFO - 点击元素：新增 成功.
+2019-09-06 17:10:48,226 - BasePage - INFO - 点击元素：保存 成功.
+2019-09-06 17:10:50,293 - BasePage - INFO - 获取元素文本：该选项不能为空 成功。
+2019-09-06 17:10:50,293 - InvoiceType - INFO - 新增发票种类、内容与费用类型必填项验证成功。
+2019-09-06 17:10:51,485 - BasePage - INFO - 点击元素：取消 成功.
+2019-09-06 17:10:53,705 - BasePage - INFO - 点击元素：新增 成功.
+2019-09-06 17:10:55,839 - BasePage - INFO - 产品分类中选择了 '增值税普通发票'
+2019-09-06 17:10:57,993 - BasePage - INFO - 点击元素： 成功.
+2019-09-06 17:11:00,999 - BasePage - INFO - 获取元素文本：['住宿费', '市内交通费', '外埠交通费', '手机费', '业务招待费', '交通补贴', '出差补贴', '团队建设费', '外部劳务费', '工作餐补贴', '办公用品费', '车辆保险费', '车辆使用费', '车辆维修费', '房租费', '会议费', '礼品费', '培训费', '汽车租赁费', '私车公用油费', '体检费', '油卡充值费', '其他', '庄辉', '淳楠', '咎颖', '西建', '楚春梅', '鞠婷', '朱帆', '詹淑华', '萧欢', '陈勇', '覃洁', '罗志强', '胡丽娟', '田瑞', '程桂珍', '龚兵', '冯飞', '谢玉', '顾淑英'] 成功。
+2019-09-06 17:11:02,666 - BasePage - INFO - 获取元素：['住宿费', '市内交通费', '外埠交通费', '手机费', '业务招待费', '交通补贴', '出差补贴', '团队建设费', '外部劳务费', '工作餐补贴', '办公用品费', '车辆保险费', '车辆使用费', '车辆维修费', '房租费', '会议费', '礼品费', '培训费', '汽车租赁费', '私车公用油费', '体检费', '油卡充值费', '其他', '庄辉', '淳楠', '咎颖', '西建', '楚春梅', '鞠婷', '朱帆', '詹淑华', '萧欢', '陈勇', '覃洁', '罗志强', '胡丽娟', '田瑞', '程桂珍', '龚兵', '冯飞', '谢玉', '顾淑英'] 成功。
+2019-09-06 17:11:04,545 - BasePage - INFO - 在输入框中输入：LEybwjDhTv
+2019-09-06 17:11:06,660 - BasePage - INFO - 点击元素：保存 成功.
+2019-09-06 17:11:08,845 - BasePage - INFO - 点击元素：确定 成功.
+2019-09-06 17:11:10,996 - BasePage - INFO - 产品分类中选择了 '200'
+2019-09-06 17:11:13,434 - BasePage - INFO - 获取元素文本：['aHDZHayxKj', 'MkRyAINSgtIFNRGdlB', 'txXROZTNGHmVeQLxHuY', 'kYCHSAnVuLAunLlf', 'DyNvXqJctVuRQhN', '哈哈哈哈哈', 'OaWirSkhJIocUFy', 'vgfbZuVnGToRibuwxy', 'bSQczZxlCuhAWEROOA', 'dWOjToiqliHHKfwueNa', 'aFXCWTTWIInpG', '', 'TIkPHdrCGIqgS', 'rTJeqzqYtZqjAWnjlk', 'cpiOzNNlrHRaPbGlj', 'jQlDLSOlKSgtkYxzOiM', 'XOCvcBSUPZuhEuyLMdA', 'lXhdWIgaKDPBe', 'LEybwjDhTv'] 成功。
+2019-09-06 17:11:13,435 - InvoiceType - INFO - 新增发票种类、内容与费用类型成功。
+2019-09-06 17:11:14,648 - BasePage - INFO - 点击元素：新增 成功.
+2019-09-06 17:11:16,769 - BasePage - INFO - 产品分类中选择了 '增值税专用发票'
+2019-09-06 17:11:18,940 - BasePage - INFO - 点击元素： 成功.
+2019-09-06 17:11:21,888 - BasePage - INFO - 获取元素文本：['住宿费', '市内交通费', '外埠交通费', '手机费', '业务招待费', '交通补贴', '出差补贴', '团队建设费', '外部劳务费', '工作餐补贴', '办公用品费', '车辆保险费', '车辆使用费', '车辆维修费', '房租费', '会议费', '礼品费', '培训费', '汽车租赁费', '私车公用油费', '体检费', '油卡充值费', '其他', '庄辉', '淳楠', '咎颖', '西建', '楚春梅', '鞠婷', '朱帆', '詹淑华', '萧欢', '陈勇', '覃洁', '罗志强', '胡丽娟', '田瑞', '程桂珍', '龚兵', '冯飞', '谢玉', '顾淑英'] 成功。
+2019-09-06 17:11:23,493 - BasePage - INFO - 获取元素：['住宿费', '市内交通费', '外埠交通费', '手机费', '业务招待费', '交通补贴', '出差补贴', '团队建设费', '外部劳务费', '工作餐补贴', '办公用品费', '车辆保险费', '车辆使用费', '车辆维修费', '房租费', '会议费', '礼品费', '培训费', '汽车租赁费', '私车公用油费', '体检费', '油卡充值费', '其他', '庄辉', '淳楠', '咎颖', '西建', '楚春梅', '鞠婷', '朱帆', '詹淑华', '萧欢', '陈勇', '覃洁', '罗志强', '胡丽娟', '田瑞', '程桂珍', '龚兵', '冯飞', '谢玉', '顾淑英'] 成功。
+2019-09-06 17:11:25,043 - BasePage - INFO - 在输入框中输入：XxQEqSbSpyOlGVdKh
+2019-09-06 17:11:27,173 - BasePage - INFO - 点击元素：保存 成功.
+2019-09-06 17:11:29,308 - BasePage - INFO - 点击元素：确定 成功.
+2019-09-06 17:11:31,451 - BasePage - INFO - 产品分类中选择了 '200'
+2019-09-06 17:11:33,945 - BasePage - INFO - 获取元素文本：['aHDZHayxKj', 'MkRyAINSgtIFNRGdlB', 'txXROZTNGHmVeQLxHuY', 'kYCHSAnVuLAunLlf', 'DyNvXqJctVuRQhN', '哈哈哈哈哈', 'OaWirSkhJIocUFy', 'vgfbZuVnGToRibuwxy', 'bSQczZxlCuhAWEROOA', 'dWOjToiqliHHKfwueNa', 'aFXCWTTWIInpG', '', 'TIkPHdrCGIqgS', 'rTJeqzqYtZqjAWnjlk', 'cpiOzNNlrHRaPbGlj', 'jQlDLSOlKSgtkYxzOiM', 'XOCvcBSUPZuhEuyLMdA', 'lXhdWIgaKDPBe', 'LEybwjDhTv', 'XxQEqSbSpyOlGVdKh'] 成功。
+2019-09-06 17:11:33,945 - InvoiceType - INFO - 新增发票种类、内容与费用类型成功。
+2019-09-06 17:11:35,317 - BasePage - INFO - 点击元素： 成功.
+2019-09-06 17:11:37,528 - BasePage - INFO - 点击元素： 成功.
+2019-09-06 17:11:40,443 - BasePage - INFO - 获取元素文本：['住宿费', '市内交通费', '外埠交通费', '手机费', '业务招待费', '交通补贴', '出差补贴', '团队建设费', '外部劳务费', '工作餐补贴', '办公用品费', '车辆保险费', '车辆使用费', '车辆维修费', '房租费', '会议费', '礼品费', '培训费', '汽车租赁费', '私车公用油费', '体检费', '油卡充值费', '其他', '庄辉', '淳楠', '咎颖', '西建', '楚春梅', '鞠婷', '朱帆', '詹淑华', '萧欢', '陈勇', '覃洁', '罗志强', '胡丽娟', '田瑞', '程桂珍', '龚兵', '冯飞', '谢玉', '顾淑英'] 成功。
+2019-09-06 17:11:42,027 - BasePage - INFO - 获取元素：['住宿费', '市内交通费', '外埠交通费', '手机费', '业务招待费', '交通补贴', '出差补贴', '团队建设费', '外部劳务费', '工作餐补贴', '办公用品费', '车辆保险费', '车辆使用费', '车辆维修费', '房租费', '会议费', '礼品费', '培训费', '汽车租赁费', '私车公用油费', '体检费', '油卡充值费', '其他', '庄辉', '淳楠', '咎颖', '西建', '楚春梅', '鞠婷', '朱帆', '詹淑华', '萧欢', '陈勇', '覃洁', '罗志强', '胡丽娟', '田瑞', '程桂珍', '龚兵', '冯飞', '谢玉', '顾淑英'] 成功。
+2019-09-06 17:11:43,433 - BasePage - INFO - 在输入框中输入：VPZXWgEKaFKjV
+2019-09-06 17:11:45,548 - BasePage - INFO - 点击元素：保存 成功.
+2019-09-06 17:11:47,712 - BasePage - INFO - 点击元素：确定 成功.
+2019-09-06 17:11:49,883 - BasePage - INFO - 产品分类中选择了 '200'
+2019-09-06 17:11:52,351 - BasePage - INFO - 获取元素文本：['VPZXWgEKaFKjV', 'MkRyAINSgtIFNRGdlB', 'txXROZTNGHmVeQLxHuY', 'kYCHSAnVuLAunLlf', 'DyNvXqJctVuRQhN', '哈哈哈哈哈', 'OaWirSkhJIocUFy', 'vgfbZuVnGToRibuwxy', 'bSQczZxlCuhAWEROOA', 'dWOjToiqliHHKfwueNa', 'aFXCWTTWIInpG', '', 'TIkPHdrCGIqgS', 'rTJeqzqYtZqjAWnjlk', 'cpiOzNNlrHRaPbGlj', 'jQlDLSOlKSgtkYxzOiM', 'XOCvcBSUPZuhEuyLMdA', 'lXhdWIgaKDPBe', 'LEybwjDhTv', 'XxQEqSbSpyOlGVdKh'] 成功。
+2019-09-06 17:11:52,351 - InvoiceType - INFO - 修改发票种类、内容与费用类型成功。
+2019-09-06 17:11:53,412 - BasePage - INFO - 产品分类中选择了 '200'
+2019-09-06 17:11:55,711 - BasePage - INFO - 获取元素文本：['VPZXWgEKaFKjV', 'MkRyAINSgtIFNRGdlB', 'txXROZTNGHmVeQLxHuY', 'kYCHSAnVuLAunLlf', 'DyNvXqJctVuRQhN', '哈哈哈哈哈', 'OaWirSkhJIocUFy', 'vgfbZuVnGToRibuwxy', 'bSQczZxlCuhAWEROOA', 'dWOjToiqliHHKfwueNa', 'aFXCWTTWIInpG', '', 'TIkPHdrCGIqgS', 'rTJeqzqYtZqjAWnjlk', 'cpiOzNNlrHRaPbGlj', 'jQlDLSOlKSgtkYxzOiM', 'XOCvcBSUPZuhEuyLMdA', 'lXhdWIgaKDPBe', 'LEybwjDhTv', 'XxQEqSbSpyOlGVdKh'] 成功。
+2019-09-06 17:11:56,797 - BasePage - INFO - 产品分类中选择了 '200'
+2019-09-06 17:11:59,100 - BasePage - INFO - 获取元素文本：['VPZXWgEKaFKjV', 'MkRyAINSgtIFNRGdlB', 'txXROZTNGHmVeQLxHuY', 'kYCHSAnVuLAunLlf', 'DyNvXqJctVuRQhN', '哈哈哈哈哈', 'OaWirSkhJIocUFy', 'vgfbZuVnGToRibuwxy', 'bSQczZxlCuhAWEROOA', 'dWOjToiqliHHKfwueNa', 'aFXCWTTWIInpG', '', 'TIkPHdrCGIqgS', 'rTJeqzqYtZqjAWnjlk', 'cpiOzNNlrHRaPbGlj', 'jQlDLSOlKSgtkYxzOiM', 'XOCvcBSUPZuhEuyLMdA', 'lXhdWIgaKDPBe', 'LEybwjDhTv', 'XxQEqSbSpyOlGVdKh'] 成功。
+2019-09-06 17:12:00,241 - BasePage - INFO - 点击元素：  成功.
+2019-09-06 17:12:02,366 - BasePage - INFO - 在输入框中输入：
+2019-09-06 17:12:05,802 - BasePage - INFO - 点击元素：查询 成功.
+2019-09-06 17:12:07,915 - BasePage - INFO - 产品分类中选择了 '200'
+2019-09-06 17:12:10,424 - BasePage - INFO - 获取元素文本：['VPZXWgEKaFKjV', 'MkRyAINSgtIFNRGdlB', 'txXROZTNGHmVeQLxHuY', 'kYCHSAnVuLAunLlf', 'DyNvXqJctVuRQhN', '哈哈哈哈哈', 'OaWirSkhJIocUFy', 'vgfbZuVnGToRibuwxy', 'bSQczZxlCuhAWEROOA', 'dWOjToiqliHHKfwueNa', 'aFXCWTTWIInpG', '', 'TIkPHdrCGIqgS', 'rTJeqzqYtZqjAWnjlk', 'cpiOzNNlrHRaPbGlj', 'jQlDLSOlKSgtkYxzOiM', 'XOCvcBSUPZuhEuyLMdA', 'lXhdWIgaKDPBe', 'LEybwjDhTv', 'XxQEqSbSpyOlGVdKh'] 成功。
+2019-09-06 17:12:10,922 - BasePage - INFO - 截屏并保存到文件夹: /images
+2019-09-06 17:12:12,456 - BasePage - INFO - 截屏并保存到文件夹: /images
+2019-09-06 17:12:13,916 - BasePage - INFO - 截屏并保存到文件夹: /images
+2019-09-06 17:12:15,428 - BasePage - INFO - 截屏并保存到文件夹: /images
+2019-09-06 17:12:16,906 - BasePage - INFO - 截屏并保存到文件夹: /images
+2019-09-06 17:12:18,373 - BasePage - INFO - 截屏并保存到文件夹: /images
+2019-09-06 17:12:19,871 - BasePage - INFO - 截屏并保存到文件夹: /images
+2019-09-06 17:12:21,480 - BasePage - INFO - 截屏并保存到文件夹: /images
+2019-09-06 17:12:22,972 - BasePage - INFO - 截屏并保存到文件夹: /images
+2019-09-06 17:12:24,446 - BasePage - INFO - 截屏并保存到文件夹: /images
+2019-09-06 17:12:25,937 - BasePage - INFO - 截屏并保存到文件夹: /images
+2019-09-06 17:12:26,938 - InvoiceType - INFO - 按发票内容查询发票种类、内容与费用类型成功。
+2019-09-06 17:12:27,457 - BasePage - INFO - 截屏并保存到文件夹: /images
+2019-09-06 17:12:28,942 - BasePage - INFO - 截屏并保存到文件夹: /images
+2019-09-06 17:12:30,426 - BasePage - INFO - 截屏并保存到文件夹: /images
+2019-09-06 17:12:31,899 - BasePage - INFO - 截屏并保存到文件夹: /images
+2019-09-06 17:12:33,395 - BasePage - INFO - 截屏并保存到文件夹: /images
+2019-09-06 17:12:34,919 - BasePage - INFO - 截屏并保存到文件夹: /images
+2019-09-06 17:12:36,497 - BasePage - INFO - 截屏并保存到文件夹: /images
+2019-09-06 17:12:38,209 - BasePage - INFO - 截屏并保存到文件夹: /images
+2019-09-06 17:12:40,327 - BasePage - INFO - 点击元素：清空 成功.
+2019-09-06 17:12:42,429 - BasePage - INFO - 点击元素：查询 成功.
+2019-09-06 17:12:44,513 - BasePage - INFO - 产品分类中选择了 '200'
+2019-09-06 17:12:47,118 - BasePage - INFO - 获取元素文本：['VPZXWgEKaFKjV', 'MkRyAINSgtIFNRGdlB', 'txXROZTNGHmVeQLxHuY', 'kYCHSAnVuLAunLlf', 'DyNvXqJctVuRQhN', '哈哈哈哈哈', 'OaWirSkhJIocUFy', 'vgfbZuVnGToRibuwxy', 'bSQczZxlCuhAWEROOA', 'dWOjToiqliHHKfwueNa', 'aFXCWTTWIInpG', '', 'TIkPHdrCGIqgS', 'rTJeqzqYtZqjAWnjlk', 'cpiOzNNlrHRaPbGlj', 'jQlDLSOlKSgtkYxzOiM', 'XOCvcBSUPZuhEuyLMdA', 'lXhdWIgaKDPBe', 'LEybwjDhTv', 'XxQEqSbSpyOlGVdKh'] 成功。
+2019-09-06 17:12:49,326 - BasePage - INFO - 点击元素： 成功.
+2019-09-06 17:12:51,605 - BasePage - INFO - 点击元素：删除 成功.
+2019-09-06 17:12:53,721 - BasePage - INFO - 点击元素：确定 成功.
+2019-09-06 17:12:55,722 - BasePage - INFO - 等待 1 秒
+2019-09-06 17:12:56,770 - BasePage - INFO - 获取元素文本： 成功。
+2019-09-06 17:12:57,835 - BasePage - INFO - 产品分类中选择了 '200'
+2019-09-06 17:13:00,457 - BasePage - INFO - 获取元素文本：['MkRyAINSgtIFNRGdlB', 'txXROZTNGHmVeQLxHuY', 'kYCHSAnVuLAunLlf', 'DyNvXqJctVuRQhN', '哈哈哈哈哈', 'OaWirSkhJIocUFy', 'vgfbZuVnGToRibuwxy', 'bSQczZxlCuhAWEROOA', 'dWOjToiqliHHKfwueNa', 'aFXCWTTWIInpG', '', 'TIkPHdrCGIqgS', 'rTJeqzqYtZqjAWnjlk', 'cpiOzNNlrHRaPbGlj', 'jQlDLSOlKSgtkYxzOiM', 'XOCvcBSUPZuhEuyLMdA', 'lXhdWIgaKDPBe', 'LEybwjDhTv', 'XxQEqSbSpyOlGVdKh'] 成功。
+2019-09-06 17:13:00,458 - InvoiceType - INFO - 删除发票内容查询发票种类、内容与费用类型成功。
+2019-09-06 17:13:01,572 - BasePage - INFO - 点击元素：导出 成功.
+2019-09-06 17:13:03,753 - BasePage - INFO - 点击元素：确定 成功.
+2019-09-06 17:13:04,779 - BasePage - INFO - 成功获取文件名列表 ['2019年08月居民个税申报.xls', '2019年奖金纳税申报.xls', 'import.xls', '上年度平均工资.xls', '借款申请信息 (1).xls', '借款申请信息.xls', '公司列表 (1).xls', '公司列表 (2).xls', '公积金初始化批量导入.xls', '其他相加导入模板.xls', '历史薪资导入模板 (1).xls', '历史薪资导入模板 (2).xls', '历史薪资导入模板.xls', '发票种类、内容与费用类型信息.xls', '合同信息 (1).xls', '合同信息 (2).xls', '合同信息 (3).xls', '员工信息 (1).xls', '奖金纳税.xls', '居民个税专项扣除批量导入.xls', '居民薪酬.xls', '工资单生成记录.xls', '携程机票信息 (1).xls', '携程机票信息.xls', '携程机票模板 (1).xls', '携程机票模板 (2).xls', '携程机票模板.xls', '携程核对主列表 (1).xls', '携程核对主列表 (2).xls', '携程核对主列表 (3).xls', '携程核对主列表.xls', '携程清单.xls', '携程酒店信息 (1).xls', '携程酒店信息 (2).xls', '携程酒店信息.xls', '携程酒店模板 (4).xls', '携程酒店模板.xls', '社保初始化批量导入.xls', '考勤批量导入 (1).xls', '考勤批量导入 (2).xls', '考勤批量导入.xls', '考勤数据.xls', '职位信息 (1).xls', '职位信息 (2).xls', '职级信息 (1).xls', '职级信息 (2).xls', '花名册导入模板 (1).xls', '花名册导入模板 (2).xls', '花名册导入模板.xls', '花名册批量修改 (1).xls', '花名册批量修改 (2).xls', '花名册批量修改 (3).xls', '花名册批量修改 (4).xls', '花名册批量修改.xls', '花名册批量导出 (1).xls', '花名册批量导出.xls', '财务支付待付款信息.xls', '非居民月度实缴税额 (1).xls', '非居民月度实缴税额.xls', '非居民薪酬 (1).xls', '非居民薪酬.xls', '预算信息导入模板 (1).xls', '预算信息导入模板.xls', '北京北京市西城区-kj.xls', '企鹅.xls', '宇创代发.xls', '正常工作薪金所得纳税申报(企鹅).xls', '正常工作薪金所得纳税申报(宇创代发).xls', '正常工资薪金所得纳税明细(企鹅).xls', '正常工资薪金所得纳税明细(宇创代发).xls', '北京北京市西城区.xls', '企鹅.xls', '宇创代发.xls', '北京北京市西城区.xls', '北京北京市西城区.xls', '北京北京市西城区-kj.xls', '江西省南昌市西湖区（开发个税测试、勿动）.xls', '企鹅.xls', '开发测试个税（勿动）.xls', '草履虫.xls', '正常工作薪金所得纳税申报(企鹅).xls', '正常工作薪金所得纳税申报(开发测试个税（勿动）).xls', '正常工作薪金所得纳税申报(草履虫).xls', '正常工资薪金所得纳税明细(企鹅).xls', '正常工资薪金所得纳税明细(开发测试个税（勿动）).xls', '正常工资薪金所得纳税明细(草履虫).xls', '北京北京市.xls', '江西省南昌市西湖区（开发个税测试、勿动）.xls', '企鹅.xls', '开发测试个税（勿动）.xls', '草履虫.xls', '公积金缴纳单.xls', '北京北京市西城区-kj.xls', '0819发放机构.xls', '0819发放机构2.xls', '企鹅.xls', '宇创代发.xls', '工资发放.xls', '正常工作薪金所得纳税申报(0819发放机构).xls', '正常工作薪金所得纳税申报(0819发放机构2).xls', '正常工作薪金所得纳税申报(企鹅).xls', '正常工作薪金所得纳税申报(宇创代发).xls', '正常工作薪金所得纳税申报.xls', '正常工资薪金所得纳税明细(0819发放机构).xls', '正常工资薪金所得纳税明细(0819发放机构2).xls', '正常工资薪金所得纳税明细(企鹅).xls', '正常工资薪金所得纳税明细(宇创代发).xls', '正常工资薪金所得纳税明细.xls', '北京北京市西城区-kj2.xls', '社保缴纳单.xls', '0819发放机构.xls', '0819发放机构2.xls', '企鹅.xls', '宇创代发.xls', '薪酬明细单.xls', '公积金缴纳单.xls', '工资发放.xls', '正常工作薪金所得纳税申报.xls', '正常工资薪金所得纳税明细.xls', '社保缴纳单.xls', '薪酬明细单.xls', '北京北京市西城区-kj.xls', '企鹅.xls', '宇创代发.xls', '草履虫.xls', '正常工作薪金所得纳税申报.xls', '正常工资薪金所得纳税明细.xls', '北京北京市西城区-kj.xls', '社保缴纳单.xls', '薪酬明细单.xls'] 
+2019-09-06 17:13:05,781 - InvoiceType - INFO - 发票种类、内容与费用类型信息导出成功！
+2019-09-06 17:13:05,789 - BasePage - INFO - 删除文件 发票种类、内容与费用类型信息.xls成功
+2019-09-06 17:13:10,160 - Logout - INFO - 登出成功。

@@ -1,0 +1,17 @@
+2019-09-20 09:41:47,488 - BrowserEngine - INFO - 你选择了 Chrome 浏览器
+2019-09-20 09:41:47,488 - BrowserEngine - INFO - 测试服务器的URL是 : https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-20 09:41:50,781 - BrowserEngine - INFO - 打开Chrome浏览器。
+2019-09-20 09:42:04,268 - BrowserEngine - INFO - 打开网址:https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-20 09:42:07,750 - Login - INFO - 登录成功。
+2019-09-20 09:42:09,469 - BasePage - INFO - 点击元素：报销管理 成功.
+2019-09-20 09:42:11,629 - BasePage - INFO - 点击元素：费用申请 成功.
+2019-09-20 09:42:13,761 - BasePage - INFO - 点击元素：日常申请 成功.
+2019-09-20 09:42:42,620 - BasePage - INFO - 点击元素：日常申请 成功.
+2019-09-20 09:42:53,292 - BasePage - INFO - 在输入框中输入：20190920094243
+2019-09-20 09:42:55,393 - BasePage - INFO - 获取元素文本：测试部 成功。
+2019-09-20 09:42:56,625 - BasePage - INFO - 点击元素： 成功.
+2019-09-20 09:42:58,815 - BasePage - INFO - 点击元素：今天 成功.
+2019-09-20 09:43:00,955 - BasePage - INFO - 点击元素： 成功.
+2019-09-20 09:43:03,065 - BasePage - INFO - 获取元素文本：['柯洁\n17607025447'] 成功。
+2019-09-20 09:43:04,141 - BasePage - INFO - 获取元素：['柯洁\n17607025447'] 成功。
+2019-09-20 09:43:05,373 - BasePage - INFO - 点击元素： 成功.

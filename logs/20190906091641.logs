@@ -1,0 +1,24 @@
+2019-09-06 09:16:41,927 - BrowserEngine - INFO - 你选择了 Chrome 浏览器
+2019-09-06 09:16:41,927 - BrowserEngine - INFO - 测试服务器的URL是 : https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-06 09:16:44,970 - BrowserEngine - INFO - 打开Chrome浏览器。
+2019-09-06 09:16:56,826 - BrowserEngine - INFO - 打开网址:https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-06 09:17:02,035 - Login - INFO - 登录成功。
+2019-09-06 09:17:03,152 - BasePage - INFO - 点击元素：首页 成功.
+2019-09-06 09:17:05,336 - BasePage - INFO - 点击元素：系统管理 成功.
+2019-09-06 09:17:07,459 - BasePage - INFO - 点击元素：公司管理 成功.
+2019-09-06 09:17:09,718 - BasePage - INFO - 点击元素：公司信息 成功.
+2019-09-06 09:17:11,794 - BasePage - INFO - 获取元素文本：雪中悍刀行 成功。
+2019-09-06 09:17:13,130 - BasePage - INFO - 点击元素：开票信息 成功.
+2019-09-06 09:17:15,187 - BasePage - INFO - 获取元素文本：雪中悍刀行 成功。
+2019-09-06 09:17:15,188 - CompanyInfo - INFO - 公司名称自动带出成功。
+2019-09-06 09:17:16,619 - BasePage - INFO - 在输入框中输入：河南省琳市沈北新成都街J座 694113
+2019-09-06 09:17:18,923 - BasePage - INFO - 在输入框中输入：18950677530
+2019-09-06 09:17:21,191 - BasePage - INFO - 在输入框中输入：中国中信银行
+2019-09-06 09:17:23,659 - BasePage - INFO - 在输入框中输入：9218746820903461941238
+2019-09-06 09:17:25,783 - BasePage - INFO - 点击元素：确定 成功.
+2019-09-06 09:17:27,784 - BasePage - INFO - 等待 1 秒
+2019-09-06 09:17:28,928 - BasePage - INFO - 点击元素：确定 成功.
+2019-09-06 09:17:30,972 - BasePage - INFO - 获取元素文本：河南省琳市沈北新成都街J座 694113 成功。
+2019-09-06 09:17:30,973 - CompanyInfo - INFO - 开票信息修改成功。
+2019-09-06 09:17:30,975 - BasePage - INFO - 隐性等待时间：1 秒
+2019-09-06 09:17:34,871 - Logout - INFO - 登出成功。

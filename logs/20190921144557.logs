@@ -1,0 +1,12 @@
+2019-09-21 14:45:57,336 - BrowserEngine - INFO - 你选择了 Chrome 浏览器
+2019-09-21 14:45:57,337 - BrowserEngine - INFO - 测试服务器的URL是 : https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-21 14:46:00,476 - BrowserEngine - INFO - 打开Chrome浏览器。
+2019-09-21 14:46:12,980 - BrowserEngine - INFO - 打开网址:https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-21 14:46:16,610 - Login - INFO - 登录成功。
+2019-09-21 14:46:18,075 - BasePage - INFO - 点击元素：协同办公 成功.
+2019-09-21 14:46:20,218 - BasePage - INFO - 点击元素：工作报告 成功.
+2019-09-21 14:46:22,362 - BasePage - INFO - 点击元素：我提交的 成功.
+2019-09-21 14:46:24,524 - BasePage - INFO - 点击元素：导 出 成功.
+2019-09-21 14:46:26,718 - BasePage - INFO - 点击元素：确定 成功.
+2019-09-21 14:46:27,718 - BasePage - INFO - 成功获取文件名列表 ['合同信息.xls', '工作报告信息 (1).xls'] 
+2019-09-21 14:46:32,459 - Logout - INFO - 登出成功。

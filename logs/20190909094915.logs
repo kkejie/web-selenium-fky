@@ -1,0 +1,17 @@
+2019-09-09 09:49:15,406 - BrowserEngine - INFO - 你选择了 Chrome 浏览器
+2019-09-09 09:49:15,407 - BrowserEngine - INFO - 测试服务器的URL是 : https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-09 09:49:18,853 - BrowserEngine - INFO - 打开Chrome浏览器。
+2019-09-09 09:49:31,079 - BrowserEngine - INFO - 打开网址:https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-09 09:49:36,944 - Login - INFO - 登录成功。
+2019-09-09 09:49:38,070 - BasePage - INFO - 点击元素：项目管理 成功.
+2019-09-09 09:49:40,229 - BasePage - INFO - 点击元素：项目主列表 成功.
+2019-09-09 09:49:42,289 - BasePage - INFO - 获取元素文本：项目378 成功。
+2019-09-09 09:49:43,477 - BasePage - INFO - 点击元素：  成功.
+2019-09-09 09:49:45,735 - BasePage - INFO - 在输入框中输入：项目378
+2019-09-09 09:49:47,862 - BasePage - INFO - 点击元素：查询 成功.
+2019-09-09 09:49:49,912 - BasePage - INFO - 获取元素文本：项目378 成功。
+2019-09-09 09:49:49,912 - Projectlist - INFO - 项目查询成功！
+2019-09-09 09:49:51,021 - BasePage - INFO - 点击元素：清空 成功.
+2019-09-09 09:49:53,109 - BasePage - INFO - 点击元素：查询 成功.
+2019-09-09 09:49:55,215 - BasePage - INFO - 点击元素：  成功.
+2019-09-09 09:50:00,627 - Logout - INFO - 登出成功。

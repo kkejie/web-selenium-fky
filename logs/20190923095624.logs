@@ -1,0 +1,8 @@
+2019-09-23 09:56:24,286 - BrowserEngine - INFO - 你选择了 Chrome 浏览器
+2019-09-23 09:56:24,287 - BrowserEngine - INFO - 测试服务器的URL是 : https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-23 09:56:27,405 - BrowserEngine - INFO - 打开Chrome浏览器。
+2019-09-23 09:56:39,239 - BrowserEngine - INFO - 打开网址:https://ecptc.keydo.com.cn:9080/ecp/pages/web-admin-ecp/web-body.html#/login
+2019-09-23 09:56:44,116 - Login - INFO - 登录成功。
+2019-09-23 09:56:46,133 - BasePage - INFO - 点击元素：系统管理 成功.
+2019-09-23 09:56:48,273 - BasePage - INFO - 点击元素：公司管理 成功.
+2019-09-23 09:56:51,360 - BasePage - INFO - 等待 1 秒
