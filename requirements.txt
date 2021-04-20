@@ -64,7 +64,7 @@ Pillow==6.0.0
 pluggy==0.13.1
 poco==0.96.8
 protobuf==3.11.2
-py==1.8.1
+py==1.10.0
 pyaml==19.4.1
 pycodestyle==2.5.0
 pycparser==2.19
